@@ -1,15 +1,21 @@
-
 import React from 'react'
+import Login from './components/Login'
+import {getCurrentUser} from './actions/currentUser'
+import {connect} from 'react-redux'
 
 class App extends React.Component {
+
+  componentDidMount() {
+    this.props.getCurrentUser()
+  }
 
   render(){
     return (
       <div className="App">
-        App
+        <Login/>
       </div>
     );
   }
 }
 
-export default App;
+export default connect(null, {getCurrentUser})(App);

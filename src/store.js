@@ -1,9 +1,14 @@
 import {createStore, applyMiddleware, compose, combineReducers} from 'redux';
-import users from './reducers/users.js'
+import users from './reducers/users'
+import currentUser from './reducers/currentUser'
+import loginForm from './reducers/loginForm'
 import thunk from 'redux-thunk'
 
+//users: users 
 const reducer = combineReducers({
-    users
+    users,
+    currentUser,
+    loginForm
   })
   
 // how to use middleware
