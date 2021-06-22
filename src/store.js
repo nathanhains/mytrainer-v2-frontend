@@ -1,4 +1,5 @@
-import {createStore, applyMiddleware, compose, combineReducers} from 'redux';
+import {createStore, applyMiddleware, combineReducers} from 'redux';
+import {composeWithDevTools} from 'redux-devtools-extension'
 import users from './reducers/users'
 import currentUser from './reducers/currentUser'
 import loginForm from './reducers/loginForm'
@@ -12,8 +13,7 @@ const reducer = combineReducers({
   })
   
 // how to use middleware
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)))
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
 
 export default store
