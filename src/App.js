@@ -1,8 +1,11 @@
 import React from 'react'
 import Login from './components/Login'
-import Logout from './components/Logout'
+import Signup from './components/Signup'
+import Home from './components/Home'
+import Profile from './components/Profile'
 import {getCurrentUser} from './actions/currentUser'
 import {connect} from 'react-redux'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 class App extends React.Component {
 
@@ -11,17 +14,25 @@ class App extends React.Component {
   }
 
   render(){
+    const {loggedIn} = this.props
     return (
-      <div className="App">
-        {this.props.currentUser ? <Logout/> : <Login/>}
-      </div>
+      <Router>
+        <div className="App">
+          <div>
+            <Route exact path='/' render={()=> loggedIn ? <Profile/> : <Home/>}/>
+            <Route exact path='/login' component={Login}/>
+            <Route exact path='/signup' component={Signup}/>
+            <Route exact path='/workouts/new' component={NewWorkout}
+          </div>
+        </div>
+      </Router>
     );
   }
 }
 
 const mapStateToProps = ({currentUser})=> {
   return {
-    currentUser
+    loggedIn: !!currentUser
   }
 }
 
