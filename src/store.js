@@ -5,13 +5,15 @@ import currentUser from './reducers/currentUser'
 import loginForm from './reducers/loginForm'
 import signupForm from './reducers/signupForm'
 import thunk from 'redux-thunk'
+import newWorkoutForm from './reducers/newWorkoutForm'
 
 //users: users 
 const reducer = combineReducers({
     users,
     currentUser,
     loginForm,
-    signupForm
+    signupForm,
+    newWorkoutForm
   })
   
 // how to use middleware
