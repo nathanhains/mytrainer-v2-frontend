@@ -1,4 +1,5 @@
 import {resetNewWorkoutForm} from './newWorkoutForm'
+import {successsfulPost, resetPost} from './postSubmission'
 
 export const setMyWorkouts = workouts => {
     return {
@@ -43,7 +44,7 @@ export const getMyWorkouts = () => {
     }
 }
 
-export const createWorkout = workoutData => {
+export const createWorkout = (workoutData) => {
     return dispatch => { 
         return fetch("http://localhost:3000/api/v1/workouts", {
             credentials: "include",
@@ -60,6 +61,11 @@ export const createWorkout = workoutData => {
             }else{
                 dispatch(addWorkout(resp.data))
                 dispatch(resetNewWorkoutForm())
+                dispatch(successsfulPost())
+                
+                setTimeout(() => {
+                    dispatch(resetPost())
+                  }, 2000);
             }
         })
         .catch(console.log)

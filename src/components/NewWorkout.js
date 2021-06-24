@@ -4,8 +4,7 @@ import {connect} from 'react-redux'
 import {updateNewWorkoutForm} from '../actions/newWorkoutForm'
 import {createWorkout} from '../actions/myWorkouts'
 
-
-const NewWorkout = ({newWorkoutFormData, updateNewWorkoutForm, createWorkout, user_id, history}) => {
+const NewWorkout = ({newWorkoutFormData, updateNewWorkoutForm, createWorkout, user_id}) => {
 
     const modalRef = useRef()
 

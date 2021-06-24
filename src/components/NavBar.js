@@ -9,7 +9,7 @@ const NavBar = ({currentUser}) => {
     return (
     <div className="NavBar">
         <NavLink to="/">Home</NavLink>
-        <NewWorkout/>
+        <NewWorkout />
         <Logout/>
     </div>
     )

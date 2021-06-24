@@ -9,6 +9,7 @@ import NavBar from './components/NavBar'
 import {getCurrentUser} from './actions/currentUser'
 import {connect} from 'react-redux'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
+import PostSubmission from './components/PostSubmission'
 
 class App extends React.Component {
 
@@ -23,6 +24,7 @@ class App extends React.Component {
       <Router>
         <div className="App">
           {loggedIn ? <NavBar/> : null}
+          <PostSubmission/>
             <Route exact path='/' render={()=> loggedIn ? <Profile/> : <Home/>}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/signup' component={Signup}/>
