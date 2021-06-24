@@ -1,13 +1,11 @@
 import React from 'react'
-import Logout from './Logout'
-import NewWorkout from './NewWorkout'
+import MyWorkouts from './MyWorkouts'
 
 const Profile = () => {
     return(
     <div>
-        <h2>hi</h2>
-        <NewWorkout/>
-        <Logout/>
+        <h2>Welcome!</h2>
+        <MyWorkouts/>
     </div>
     )
 }

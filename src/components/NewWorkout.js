@@ -45,7 +45,7 @@ const NewWorkout = ({newWorkoutFormData, updateNewWorkoutForm, createWorkout, us
 const mapStateToProps = state => {
     return {
         newWorkoutFormData: state.newWorkoutForm,
-        user_id: state.currentUser.data.id
+        user_id: state.currentUser ? state.currentUser.data.id : ""
     }
 }
 

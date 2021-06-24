@@ -1,5 +1,6 @@
 import {resetLoginForm} from './loginForm'
 import {resetSignupForm} from './signupForm'
+import {clearWorkouts, getMyWorkouts} from './myWorkouts'
 
 export const setCurrentUser = user => {
     return {
@@ -33,6 +34,7 @@ export const login = (credentials, history) => {
                     alert(user.error)
                 }else{
                     dispatch(setCurrentUser(user))
+                    dispatch(getMyWorkouts())
                     dispatch(resetLoginForm())
                     history.push('/')
                 }
@@ -84,6 +86,7 @@ export const getCurrentUser = () => {
                     alert(user.error)
                 }else{
                     dispatch(setCurrentUser(user))
+                    dispatch(getMyWorkouts())
                 }
             })
             .catch(console.log)
@@ -93,12 +96,11 @@ export const getCurrentUser = () => {
 
 export const logout = () => {
     return dispatch => {
-        
         dispatch(clearCurrentUser())
+        dispatch(clearWorkouts())
         return fetch("http://localhost:3000/api/v1/logout", {
             credentials: "include",
             method: "DELETE"
         })
-        
     }
 }
