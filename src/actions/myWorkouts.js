@@ -1,3 +1,5 @@
+import {resetNewWorkoutForm} from './newWorkoutForm'
+
 export const setMyWorkouts = workouts => {
     return {
         type: "SET_MY_WORKOUTS",
@@ -52,6 +54,15 @@ export const createWorkout = workoutData => {
             body: JSON.stringify({workout: workoutData})
         })
         .then(resp => resp.json())
-        .then(console.log)
+        .then(resp => {
+            if (resp.error) {
+                alert(resp.error)
+            }else{
+                dispatch(addWorkout(resp.data))
+                dispatch(resetNewWorkoutForm())
+            }
+        })
+        .catch(console.log)
+
     }
 }

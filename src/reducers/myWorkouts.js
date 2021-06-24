@@ -8,7 +8,7 @@ export default (state=initialState, action) => {
         case "CLEAR_MY_WORKOUTS":
             return []
         case "ADD_WORKOUT":
-            return state.workouts.concat(action.workout)
+            return state.concat(action.workout)
         default:
             return state
     }

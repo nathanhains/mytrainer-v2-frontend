@@ -26,6 +26,7 @@ const NewWorkout = ({newWorkoutFormData, updateNewWorkoutForm, createWorkout, us
             ...newWorkoutFormData,
             user_id
         })
+        modalRef.current.close()
     }
 
     return(
