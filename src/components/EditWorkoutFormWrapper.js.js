@@ -2,9 +2,17 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {updateWorkout, deleteWorkout} from '../actions/myWorkouts'
 import {setEditWorkoutForm, resetWorkoutForm} from '../actions/workoutForm'
+import Sure from './Sure'
 import WorkoutForm from './WorkoutForm'
 
 class EditWorkoutFormWrapper extends React.Component{
+
+    constructor(){
+        super()
+        this.state = {
+            clicked: false
+        }
+    }
 
     componentDidMount(){
         this.props.workout && this.props.setEditWorkoutForm(this.props.workout)
@@ -15,7 +23,7 @@ class EditWorkoutFormWrapper extends React.Component{
     }
 
     componentWillUnmount() {
-        this.props.resetWorkoutForm()
+        this.props.resetWorkoutForm() && this.setState({clicked: false})
     }
 
     handleSubmit = (e, workoutFormData, user_id, modalRef) => {
@@ -31,12 +39,13 @@ class EditWorkoutFormWrapper extends React.Component{
     render() {
     return <>
     <WorkoutForm handleSubmit={this.handleSubmit} display="Edit"/>
-    <button onClick={() => {
+    <button onClick={() => this.setState({clicked: true})}>Delete</button>
+    {this.state.clicked ? <Sure cancel={()=> this.setState({clicked: false})} delete={() => {
         this.props.closeModal()
         setTimeout(() => {
             this.props.deleteWorkout(this.props.workout)
-          }, 200);
-        }}>Delete</button>
+          }, 100)
+    }}/> : null}
     </>
 }}
 

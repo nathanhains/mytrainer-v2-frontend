@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
 import EditWorkoutFormWrapper from './EditWorkoutFormWrapper.js'
 import Modal from './Modal'
-
 const WorkoutCard = ({workout}) => {
 
     const showRef = useRef()
@@ -13,7 +12,6 @@ const WorkoutCard = ({workout}) => {
         <Modal ref={showRef}>
             {workout.attributes.name}
             <EditWorkoutFormWrapper closeModal={()=> showRef.current.close()} workout={workout}/>
-
         </Modal>
         </div>
     )
