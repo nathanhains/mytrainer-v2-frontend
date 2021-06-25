@@ -1,6 +1,7 @@
 import {resetLoginForm} from './loginForm'
 import {resetSignupForm} from './signupForm'
 import {clearWorkouts, getMyWorkouts} from './myWorkouts'
+import {getExercises} from './exercises'
 
 export const setCurrentUser = user => {
     return {
@@ -35,6 +36,7 @@ export const login = (credentials, history) => {
                 }else{
                     dispatch(setCurrentUser(user))
                     dispatch(getMyWorkouts())
+                    dispatch(getExercises())
                     dispatch(resetLoginForm())
                     history.push('/')
                 }
