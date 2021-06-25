@@ -50,7 +50,6 @@ export const getMyWorkouts = () => {
             if (response.error){
                 alert(response.error)
             }else {
-                console.log(response.data)
                 dispatch(setMyWorkouts(response.data))
             }
         })

@@ -1,6 +1,7 @@
 const initialState = {
     name: "",
-    notes: ""
+    notes: "",
+    exercises: []
 }
 
 

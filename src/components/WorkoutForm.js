@@ -2,6 +2,9 @@ import React, {useRef} from 'react'
 import Modal from './Modal'
 import {connect} from 'react-redux'
 import {updateWorkoutForm} from '../actions/workoutForm'
+import AddExercises from './AddExercises'
+import { updateWorkout } from '../actions/myWorkouts'
+import AddedExerciseCard from './AddedExerciseCard'
 
 const WorkoutForm = ({workoutFormData, updateWorkoutForm, handleSubmit, user_id, display}) => {
 
@@ -23,10 +26,13 @@ const WorkoutForm = ({workoutFormData, updateWorkoutForm, handleSubmit, user_id,
         <button onClick={() => {modalRef.current.open()}}>{display}</button>
         <Modal ref={modalRef}>
         <form onSubmit={e => handleSubmit(e, workoutFormData, user_id, modalRef)}>
-            <input type="text" onChange={handleChange} placeholder="name" name="name" value={workoutFormData.name}/>
+            <input type="text" onChange={handleChange} placeholder="name" name="name" value={workoutFormData.name}/> <input type="submit" value="Save"/>
             <input type="text" onChange={handleChange} placeholder="notes" name="notes" value={workoutFormData.notes}/>
-            <input type="submit" value="Save"/>
+            <br></br>
         </form>
+        {workoutFormData.exercises ? workoutFormData.exercises.map((e, i) => <AddedExerciseCard updateWorkoutForm={updateWorkoutForm} workoutFormData={workoutFormData} key={i} exercise={e}/> ) : null}
+        <br></br>
+        <AddExercises updateWorkoutForm={updateWorkoutForm} workoutFormData={workoutFormData}/>
         </Modal>
     </div>
     )
