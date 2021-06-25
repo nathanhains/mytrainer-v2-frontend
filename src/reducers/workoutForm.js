@@ -11,6 +11,9 @@ export default (state=initialState, action) => {
             return action.formData
         case "RESET_NEW_WORKOUT_FORM":
             return initialState
+        case "SET_EDIT_WORKOUT_FORM":
+            console.log("yo")
+            return action.workoutFormData
         default:
             return state
     }

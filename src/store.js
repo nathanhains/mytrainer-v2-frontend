@@ -6,7 +6,7 @@ import loginForm from './reducers/loginForm'
 import signupForm from './reducers/signupForm'
 import myWorkouts from './reducers/myWorkouts'
 import thunk from 'redux-thunk'
-import newWorkoutForm from './reducers/newWorkoutForm'
+import workoutForm from './reducers/workoutForm'
 import postSubmission from './reducers/postSubmission'
 
 //users: users 
@@ -14,7 +14,7 @@ const reducer = combineReducers({
     currentUser,
     loginForm,
     signupForm,
-    newWorkoutForm,
+    workoutForm,
     myWorkouts,
     postSubmission
   })

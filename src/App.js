@@ -3,7 +3,7 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import Home from './components/Home'
 import Profile from './components/Profile'
-import NewWorkout from './components/NewWorkout'
+import WorkoutForm from './components/WorkoutForm'
 import MyWorkouts from './components/MyWorkouts'
 import NavBar from './components/NavBar'
 import {getCurrentUser} from './actions/currentUser'
@@ -28,7 +28,7 @@ class App extends React.Component {
             <Route exact path='/' render={()=> loggedIn ? <Profile/> : <Home/>}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/signup' component={Signup}/>
-            <Route exact path='/workouts/new' render={() => <NewWorkout/>}/>
+            <Route exact path='/workouts/new' render={() => <WorkoutForm/>}/>
             <Route exact path='/workouts' component={MyWorkouts}/>
         </div>
       </Router>
