@@ -38,11 +38,12 @@ export const updateWorkoutSuccess = workout => {
 
 export const getMyWorkouts = () => {
     return dispatch => {
+        const token = localStorage.token;
         return fetch("http://localhost:3000/api/v1/workouts", {
-            credentials: "include",
             method: "GET",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`
             },
         })
         .then(r => r.json())
@@ -59,11 +60,12 @@ export const getMyWorkouts = () => {
 
 export const createWorkout = (workoutData) => {
     return dispatch => { 
+        const token = localStorage.token;
         return fetch("http://localhost:3000/api/v1/workouts", {
-            credentials: "include",
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify({workout: workoutData})
         })
@@ -88,11 +90,12 @@ export const createWorkout = (workoutData) => {
 
 export const updateWorkout = (workoutData) => {
     return dispatch => { 
+        const token = localStorage.token;
         return fetch(`http://localhost:3000/api/v1/workouts/${workoutData.workout_id}`, {
-            credentials: "include",
             method: "PATCH",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify({workout: workoutData})
         })
@@ -101,7 +104,6 @@ export const updateWorkout = (workoutData) => {
             if (resp.error) {
                 alert(resp.error)
             }else{
-                console.log(resp.data)
                 dispatch(updateWorkoutSuccess(resp.data))
             }
         })
@@ -112,11 +114,12 @@ export const updateWorkout = (workoutData) => {
 
 export const deleteWorkout = (workoutData) => {
     return dispatch => { 
+        const token = localStorage.token;
         return fetch(`http://localhost:3000/api/v1/workouts/${workoutData.id}`, {
-            credentials: "include",
             method: "DELETE",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`
             }
         })
         .then(dispatch(deleteWorkoutSuccess(workoutData)) && dispatch(resetWorkoutForm()))

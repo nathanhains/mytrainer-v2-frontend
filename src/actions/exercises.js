@@ -7,11 +7,12 @@ export const setExercises = (exercises) => {
 
 export const getExercises = () => {
     return dispatch => {
+        const token = localStorage.token;
         return fetch("http://localhost:3000/api/v1/exercises", {
-            credentials: "include",
             method: "GET",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`
             },
         })
         .then(r => r.json())

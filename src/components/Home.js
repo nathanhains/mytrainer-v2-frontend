@@ -1,12 +1,22 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import MyWorkouts from './MyWorkouts'
+import {connect} from 'react-redux'
+import "../profile.css"
 
-const Home = () => {
+const Home = ({currentUser}) => {
+
     return(
     <div>
-        <h4>Welcome, please <Link to="/signup">Sign Up</Link> or <Link to="/login">Log In</Link></h4>
+        <h2>Welcome! {currentUser.data.name} <button className={"button"} onClick={(e)=> e.target.className==="fa fa-gear fa-spin" ? e.target.className="fa fa-gear" : e.target.className="fa fa-gear fa-spin"}><i className="fa fa-gear"></i></button></h2>
+        <MyWorkouts/>
     </div>
     )
 }
 
-export default Home
+const mapStateToProps = ({currentUser}) =>{
+    return {
+        currentUser
+    }
+}
+
+export default connect(mapStateToProps)(Home)
