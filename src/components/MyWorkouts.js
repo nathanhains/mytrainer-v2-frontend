@@ -3,7 +3,7 @@ import WorkoutCard from './WorkoutCard'
 import {connect} from 'react-redux'
 
 const MyWorkouts = ({myWorkouts}) => {
-    const workouts = myWorkouts.map(w => <WorkoutCard workout={w} key={w.id}/>)
+    const workouts = myWorkouts.map((w, i )=> <WorkoutCard workout={w} i={i} key={i}/>)
     return (
         workouts.length>0 ? <ul>{workouts}</ul> : null
     )

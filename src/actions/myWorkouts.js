@@ -101,8 +101,8 @@ export const updateWorkout = (workoutData) => {
             if (resp.error) {
                 alert(resp.error)
             }else{
+                console.log(resp.data)
                 dispatch(updateWorkoutSuccess(resp.data))
-                dispatch(resetWorkoutForm())
             }
         })
         .catch(console.log)

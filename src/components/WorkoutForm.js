@@ -3,7 +3,6 @@ import Modal from './Modal'
 import {connect} from 'react-redux'
 import {updateWorkoutForm} from '../actions/workoutForm'
 import AddExercises from './AddExercises'
-import { updateWorkout } from '../actions/myWorkouts'
 import AddedExerciseCard from './AddedExerciseCard'
 
 const WorkoutForm = ({workoutFormData, updateWorkoutForm, handleSubmit, user_id, display}) => {

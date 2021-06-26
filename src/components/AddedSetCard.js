@@ -14,7 +14,7 @@ const AddedSetCard = ({exercise, i, set, updateWorkoutForm, workoutFormData}) =>
         }
 
         return <>
-                <p key={i}>{i + 1}: Reps: <input name="reps" onChange={handleChange} type="text" maxLength="3" size="3" value={set.reps}/> Lbs: <input name="lbs"onChange={handleChange} type="text" maxLength="3" size="3" value={set.lbs}/> <button onClick={()=> 
+                <p key={i}>{i + 1}: Reps: <input name="reps" onChange={handleChange} type="text" maxLength="3" size="3" value={set.reps ? set.reps : ""}/> Lbs: <input name="lbs"onChange={handleChange} type="text" maxLength="3" size="3" value={set.lbs ? set.lbs : ""}/> <button onClick={()=> 
                         updateWorkoutForm( {...workoutFormData, exercises: workoutFormData.exercises.map(e => e.id === exercise.id ? {...exercise, addedSets: exercise.addedSets.filter((s, idx) => idx !== i)}: e)})
                         } >X</button></p>
         </>

@@ -1,5 +1,4 @@
 export const setExercises = (exercises) => {
-    console.log(exercises)
     return {
         type: "SET_EXERCISES",
         exercises
@@ -20,7 +19,6 @@ export const getExercises = () => {
             if (response.error){
                 alert(response.error)
             }else {
-                console.log(response.data)
                 dispatch(setExercises(response.data))
             }
         })

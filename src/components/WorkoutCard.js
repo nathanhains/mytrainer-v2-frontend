@@ -1,16 +1,24 @@
 import React, { useRef } from 'react'
 import EditWorkoutFormWrapper from './EditWorkoutFormWrapper.js'
 import Modal from './Modal'
-const WorkoutCard = ({workout}) => {
+const WorkoutCard = ({workout, i}) => {
 
     const showRef = useRef()
 
-    return (<div>
+    return (<div key={i}>
         <li onClick={() => showRef.current.open()}>
             {workout.attributes.name}
         </li>
         <Modal ref={showRef}>
-            {workout.attributes.name}
+            <h1>{workout.attributes.name}</h1>
+            <h2>{workout.attributes.notes}</h2>
+            {workout.attributes.workout_exercises.data.map(w=> 
+            <>
+            <h3>{w.attributes.exercise.data.attributes.name}</h3>
+            <h4>Sets</h4>
+            {w.attributes.set_groups.data.map((s, i)=> <h4 key={i}>{i+1}. Reps: {s.attributes.reps} Lbs: {s.attributes.lbs}</h4>)}
+            </>
+            )}
             <EditWorkoutFormWrapper closeModal={()=> showRef.current.close()} workout={workout}/>
         </Modal>
         </div>

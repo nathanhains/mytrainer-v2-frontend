@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { Checkmark } from 'react-checkmark'
 
 const PostSubmission = ({postSubmission}) => {
-    const [open, setOpen] = useState(true)
+    const [open] = useState(true)
     
     return (
         <AnimatePresence>
