@@ -1,6 +1,6 @@
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension'
-// import users from './reducers/users'
+import users from './reducers/users'
 import currentUser from './reducers/currentUser'
 import loginForm from './reducers/loginForm'
 import signupForm from './reducers/signupForm'
@@ -20,7 +20,8 @@ const reducer = combineReducers({
     myWorkouts,
     postSubmission,
     exercises,
-    loading
+    loading,
+    users
   })
   
 // how to use middleware

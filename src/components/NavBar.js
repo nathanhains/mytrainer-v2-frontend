@@ -5,6 +5,7 @@ import Logout from './Logout'
 
 import '../navbar.css'
 import NewWorkoutFormWrapper from './NewWorkoutFormWrapper'
+import Search from './Search'
 
 const NavBar = ({currentUser}) => {
     return (
@@ -12,6 +13,7 @@ const NavBar = ({currentUser}) => {
         <NavLink to="/">Home</NavLink>
         <NewWorkoutFormWrapper />
         <Logout/>
+        <Search/>
     </div>
     )
 }

@@ -1,8 +1,9 @@
 import {resetLoginForm} from './loginForm'
 import {resetSignupForm} from './signupForm'
 import {clearWorkouts, getMyWorkouts} from './myWorkouts'
-import {getExercises} from './exercises'
+import {getExercises, clearExercises} from './exercises'
 import {hideLoader} from './loading'
+import {getUsers, clearUsers} from './users'
 
 export const setCurrentUser = user => {
     return {
@@ -37,8 +38,11 @@ export const login = (credentials, history) => {
                     dispatch(setCurrentUser(user.user))
                     dispatch(getMyWorkouts())
                     dispatch(getExercises())
+                    dispatch(getUsers())
                     dispatch(resetLoginForm())
+                    dispatch(hideLoader())
                     history.push(`/home`)
+                    
                 }
             })
             .catch(console.log)
@@ -66,6 +70,8 @@ export const signup = (credentials, history) => {
                     localStorage.setItem("token", user.jwt)
                     dispatch(setCurrentUser(user.user))
                     dispatch(resetSignupForm())
+                    dispatch(getUsers())
+                    dispatch(hideLoader())
                     history.push('/home')
                 }
             })
@@ -88,9 +94,9 @@ export const getCurrentUser = () => {
                 if (user.error) {
                     alert(user.error)
                 }else{
-                    dispatch(hideLoader())
                     dispatch(setCurrentUser(user.user))
                     dispatch(getMyWorkouts())
+                    dispatch(getUsers())
                 }
             })
             .catch(console.log)
@@ -100,11 +106,10 @@ export const getCurrentUser = () => {
 
 export const logout = () => {
     return dispatch => {
+        localStorage.removeItem("token")
         dispatch(clearCurrentUser())
         dispatch(clearWorkouts())
-        return fetch("http://localhost:3000/api/v1/logout", {
-            credentials: "include",
-            method: "DELETE"
-        })
+        dispatch(clearExercises())
+        dispatch(clearUsers())
     }
 }

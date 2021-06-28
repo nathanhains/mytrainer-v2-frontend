@@ -1,20 +1,21 @@
-export const setExercises = (exercises) => {
+export const setUsers = users => {
     return {
-        type: "SET_EXERCISES",
-        exercises
+        type: "SET_USERS",
+        users
     }
 }
 
-export const clearExercises = () => {
+export const clearUsers = () => {
     return {
-        type: "CLEAR_EXERCISES"
+        type: "CLEAR_USERS"
     }
 }
 
-export const getExercises = () => {
+
+export const getUsers = () => {
     return dispatch => {
         const token = localStorage.token;
-        return fetch("http://localhost:3000/api/v1/exercises", {
+        return fetch("http://localhost:3000/api/v1/users", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -26,7 +27,7 @@ export const getExercises = () => {
             if (response.error){
                 alert(response.error)
             }else {
-                dispatch(setExercises(response.data))
+                dispatch(setUsers(response))
             }
         })
         .catch(console.log)

@@ -1,14 +1,22 @@
 import React, { useRef } from 'react'
 import EditWorkoutFormWrapper from './EditWorkoutFormWrapper.js'
 import Modal from './Modal'
+import {motion} from 'framer-motion'
+
 const WorkoutCard = ({workout, i}) => {
 
     const showRef = useRef()
 
+    const item = {
+        hidden: { opacity: 0 },
+        show: { opacity: 1 }
+      }
+
     return (<div key={i}>
-        <li onClick={() => showRef.current.open()}>
+        
+        <motion.li variants={item} onClick={() => showRef.current.open()}>
             {workout.attributes.name}
-        </li>
+        </motion.li>
         <Modal ref={showRef}>
             <h1>{workout.attributes.name}</h1>
             <h2>{workout.attributes.notes}</h2>
