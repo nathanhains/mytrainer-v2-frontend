@@ -1,5 +1,5 @@
 import {resetLoginForm} from './loginForm'
-import {resetSignupForm} from './signupForm'
+import {resetUserForm} from './userForm'
 import {clearWorkouts, getMyWorkouts} from './myWorkouts'
 import {clearExercises} from './exercises'
 import {hideLoader} from './loading'
@@ -49,7 +49,6 @@ export const login = (credentials, history) => {
 }
 
 export const signup = (credentials, history) => {
-    console.log("credentials are", credentials)
     return dispatch => {
             const userInfo = {
                 user: credentials
@@ -68,7 +67,7 @@ export const signup = (credentials, history) => {
                 }else{
                     localStorage.setItem("token", user.jwt)
                     dispatch(setCurrentUser(user.user))
-                    dispatch(resetSignupForm())
+                    dispatch(resetUserForm())
                     dispatch(hideLoader())
                     history.push('/home')
                 }
@@ -102,6 +101,34 @@ export const getCurrentUser = () => {
     
 }
 
+export const updateUser = (userData) => {
+    const { userId, ...noUserId } = userData
+    const userInfo = {
+        user: noUserId
+    }
+    return dispatch => { 
+        const token = localStorage.token;
+        return fetch(`http://localhost:3000/api/v1/users/${userData.userId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(userInfo)
+        })
+        .then(resp => resp.json())
+        .then(user => {
+            if (user.error) {
+                alert(user.error)
+            }else{
+                dispatch(setCurrentUser(user.user))
+            }
+        })
+        .catch(console.log)
+
+    }
+}
+
 export const logout = () => {
     return dispatch => {
         localStorage.removeItem("token")
@@ -115,6 +142,13 @@ export const logout = () => {
 export const setFollowing = (friend) => {
     return {
         type: "SET_FOLLOWING",
+        friend
+    }
+}
+
+export const removeFollowing = (friend) => {
+    return {
+        type: "REMOVE_FOLLOWING",
         friend
     }
 }

@@ -27,7 +27,7 @@ const Modal = forwardRef((props, ref) => {
                         opacity: 0
                     }}
                     onClick={() => {
-                        
+                        if(props.unSpin) props.unSpin()
                         setOpen(false)}}
                     className="modal-backdrop"/>
                 <motion.div 

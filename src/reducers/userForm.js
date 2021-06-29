@@ -15,6 +15,8 @@ export default (state=initialState, action) => {
             return action.formData
         case "RESET_SIGNUP_FORM":
             return initialState
+        case "SET_EDIT_USER_FORM":
+            return action.userFormData
         default:
             return state
     }

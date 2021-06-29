@@ -50,7 +50,6 @@ const Sure = forwardRef((props, ref) => {
                             opacity: 0
                         }}
                         className="sure-content-wrapper">
-                            {console.log("hi")}
                         <h2>Are you sure?</h2>
                         <h4><button onClick={()=> {
                             setTimeout(() => {

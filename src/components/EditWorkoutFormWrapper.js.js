@@ -38,7 +38,7 @@ class EditWorkoutFormWrapper extends React.Component{
     }
     render() {
     return <>
-    <WorkoutForm handleSubmit={this.handleSubmit} display="Edit"/>
+    <WorkoutForm handleSubmit={this.handleSubmit} display="Update"/>
     <button onClick={() => this.setState({clicked: true})}>Delete</button>
     {this.state.clicked ? <Sure cancel={()=> this.setState({clicked: false})} delete={() => {
         this.props.closeModal()
