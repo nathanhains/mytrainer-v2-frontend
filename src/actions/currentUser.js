@@ -1,9 +1,10 @@
 import {resetLoginForm} from './loginForm'
 import {resetSignupForm} from './signupForm'
 import {clearWorkouts, getMyWorkouts} from './myWorkouts'
-import {getExercises, clearExercises} from './exercises'
+import {clearExercises} from './exercises'
 import {hideLoader} from './loading'
 import {getUsers, clearUsers} from './users'
+
 
 export const setCurrentUser = user => {
     return {
@@ -37,8 +38,6 @@ export const login = (credentials, history) => {
                     localStorage.setItem("token", user.jwt)
                     dispatch(setCurrentUser(user.user))
                     dispatch(getMyWorkouts())
-                    dispatch(getExercises())
-                    dispatch(getUsers())
                     dispatch(resetLoginForm())
                     dispatch(hideLoader())
                     history.push(`/home`)
@@ -70,7 +69,6 @@ export const signup = (credentials, history) => {
                     localStorage.setItem("token", user.jwt)
                     dispatch(setCurrentUser(user.user))
                     dispatch(resetSignupForm())
-                    dispatch(getUsers())
                     dispatch(hideLoader())
                     history.push('/home')
                 }
@@ -111,5 +109,12 @@ export const logout = () => {
         dispatch(clearWorkouts())
         dispatch(clearExercises())
         dispatch(clearUsers())
+    }
+}
+
+export const setFollowing = (friend) => {
+    return {
+        type: "SET_FOLLOWING",
+        friend
     }
 }

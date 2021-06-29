@@ -33,3 +33,11 @@ export const getUsers = () => {
         .catch(console.log)
     }
 }
+
+export const setFollower = (friend, user) => {
+    return {
+        type: "SET_FOLLOWER",
+        friend, 
+        user
+    }
+}

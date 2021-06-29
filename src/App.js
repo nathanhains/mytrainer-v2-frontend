@@ -19,6 +19,7 @@ class App extends React.Component {
   componentDidMount() {
 
     const token = localStorage.getItem("token")
+    
     if(token){
       this.props.showLoader()
       this.props.getCurrentUser()
@@ -26,7 +27,7 @@ class App extends React.Component {
   }
 
   render(){
-    const {loggedIn} = this.props
+    const loggedIn = !!localStorage.getItem("token") || !!this.props.currentUser
 
     return (
       <Router>
@@ -40,9 +41,7 @@ class App extends React.Component {
               <Route exact path='/home' component={()=> loggedIn ? <Home/> : <Redirect to="/"/>}/>
               <Route exact path='/login' component={Login}/>
               <Route exact path='/signup' component={Signup}/>
-              <Route exact path='/workouts/new' render={() => <WorkoutForm/>}/>
-              <Route exact path='/users/:id' component={() => <Home/>}/>
-              <Route exact path='/workouts' component={MyWorkouts}/>
+              <Route exact path='/users/:id' component={() => loggedIn ? <Home/> : <Redirect to="/"/>}/>
             </Switch>
           </AnimatePresence>
         </div>
@@ -53,7 +52,7 @@ class App extends React.Component {
 
 const mapStateToProps = ({currentUser})=> {
   return {
-    loggedIn: !!currentUser
+    currentUser
   }
 }
 

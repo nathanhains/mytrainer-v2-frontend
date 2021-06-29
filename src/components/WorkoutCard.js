@@ -3,7 +3,7 @@ import EditWorkoutFormWrapper from './EditWorkoutFormWrapper.js'
 import Modal from './Modal'
 import {motion} from 'framer-motion'
 
-const WorkoutCard = ({workout, i}) => {
+const WorkoutCard = ({workout, i, userId}) => {
 
     const showRef = useRef()
 
@@ -27,7 +27,7 @@ const WorkoutCard = ({workout, i}) => {
             {w.attributes.set_groups.data.map((s, i)=> <h4 key={i}>{i+1}. Reps: {s.attributes.reps} Lbs: {s.attributes.lbs}</h4>)}
             </>
             )}
-            <EditWorkoutFormWrapper closeModal={()=> showRef.current.close()} workout={workout}/>
+            {!userId ? <EditWorkoutFormWrapper closeModal={()=> showRef.current.close()} workout={workout}/> : null}
         </Modal>
         </div>
     )

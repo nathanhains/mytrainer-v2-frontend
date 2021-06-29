@@ -10,6 +10,7 @@ import thunk from 'redux-thunk'
 import workoutForm from './reducers/workoutForm'
 import postSubmission from './reducers/postSubmission'
 import loading from './reducers/loading'
+import friends from './reducers/friends'
 
 //users: users 
 const reducer = combineReducers({
@@ -21,7 +22,8 @@ const reducer = combineReducers({
     postSubmission,
     exercises,
     loading,
-    users
+    users,
+    friends
   })
   
 // how to use middleware

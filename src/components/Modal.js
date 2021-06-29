@@ -26,7 +26,9 @@ const Modal = forwardRef((props, ref) => {
                     exit={{
                         opacity: 0
                     }}
-                    onClick={() => setOpen(false)}
+                    onClick={() => {
+                        
+                        setOpen(false)}}
                     className="modal-backdrop"/>
                 <motion.div 
                     initial={{

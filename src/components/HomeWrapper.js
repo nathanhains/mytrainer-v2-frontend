@@ -11,7 +11,7 @@ const Home = ({currentUser, users, hideLoader}) => {
     const user = userId ? users.data ? users.data.filter((u) => u.id === userId)[0] : null : null
     
     return user ? 
-        <UserHome hideLoader={hideLoader} user = {user}/>
+        <UserHome hideLoader={hideLoader} userId = {userId} user = {user}/>
     : currentUser && !userId ? 
         <CurrentUserHome hideLoader={hideLoader} currentUser = {currentUser}/>
     : null

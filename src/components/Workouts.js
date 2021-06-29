@@ -2,8 +2,10 @@ import React from 'react'
 import WorkoutCard from './WorkoutCard'
 import {connect} from 'react-redux'
 import {motion} from 'framer-motion'
-const Workouts = ({myWorkouts, userWorkouts}) => {
-    const workouts = myWorkouts.map((w, i )=> <WorkoutCard workout={w} i={i} key={i}/>)
+const Workouts = ({myWorkouts, userWorkouts, userId}) => {
+
+    const workouts = userWorkouts ? userWorkouts.map((w, i )=> <WorkoutCard workout={w} userId={userId} i={i} key={i}/>) : !userId && myWorkouts ? myWorkouts.map((w, i )=> <WorkoutCard workout={w} i={i} key={i}/>) : null
+
     const container = {
         hidden: { opacity: 0 },
         show: {
