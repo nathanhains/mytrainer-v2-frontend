@@ -3,7 +3,7 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import users from './reducers/users'
 import currentUser from './reducers/currentUser'
 import loginForm from './reducers/loginForm'
-import signupForm from './reducers/signupForm'
+import userForm from './reducers/userForm'
 import myWorkouts from './reducers/myWorkouts'
 import exercises from './reducers/exercises'
 import thunk from 'redux-thunk'
@@ -16,7 +16,7 @@ import friends from './reducers/friends'
 const reducer = combineReducers({
     currentUser,
     loginForm,
-    signupForm,
+    userForm,
     workoutForm,
     myWorkouts,
     postSubmission,

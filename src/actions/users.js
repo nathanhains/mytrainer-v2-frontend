@@ -41,3 +41,11 @@ export const setFollower = (friend, user) => {
         user
     }
 }
+
+export const removeFollower = (friend, user) => {
+    return {
+        type: "REMOVE_FOLLOWER",
+        friend, 
+        user
+    }
+}
