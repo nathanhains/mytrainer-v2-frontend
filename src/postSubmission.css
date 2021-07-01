@@ -9,4 +9,5 @@
     right: 0;
     padding: 50px;
     overflow: hidden;
+    z-index: 2000;
 }

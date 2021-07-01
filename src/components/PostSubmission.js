@@ -22,7 +22,7 @@ const PostSubmission = ({postSubmission}) => {
                     exit={{
                         scale: 0
                     }}
-                    className="check-content-wrapper"><Checkmark size='256px' color='#223344'/></motion.div>
+                    className="check-content-wrapper"><Checkmark size='256px' color='#b452ff'/></motion.div>
             </>
             ): null}
         </AnimatePresence>
