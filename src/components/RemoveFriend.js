@@ -10,7 +10,7 @@ const RemoveFriend = ({currentUser, user, removeFriend, getFriends, friends}) =>
 
    return (
        <div>
-           <button onClick={handleClick}>Following</button>
+           <button className="animate" onClick={handleClick}><span>Following</span></button>
        </div>
    )
 }

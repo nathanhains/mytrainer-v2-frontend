@@ -90,3 +90,43 @@ span {
   min-height: 100px;
     
 }
+
+button {
+    border-radius: 50px;
+    background: linear-gradient(to right, purple, indigo) !important;
+    border: none;
+    color: #b452ff;
+    text-shadow: 0 0 30px #b452ff;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    text-transform: uppercase;
+    font-size: 22px;
+    padding: 10px;
+    width: 175px;
+    transition: all 0.4s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  .animate span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.4s;
+  }
+  .animate span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  .animate:hover span {
+    padding-right: 25px;
+  }
+  
+  .animate:hover span:after {
+    opacity: 1;
+    right: 0;
+  }

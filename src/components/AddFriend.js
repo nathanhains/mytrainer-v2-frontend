@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import {addFriend} from '../actions/friends'
-
+import '../home.css'
 const AddFriend = ({currentUser, user, addFriend}) => {
 
     const handleClick = () => {
@@ -10,7 +10,7 @@ const AddFriend = ({currentUser, user, addFriend}) => {
 
    return (
        <div>
-           <button onClick={handleClick}>Follow</button>
+           <button className="animate" onClick={handleClick}><span>Follow</span></button>
        </div>
    )
 }

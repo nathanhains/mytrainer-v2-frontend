@@ -6,21 +6,22 @@ import CurrentUserHome from './CurrentUserHome';
 import UserHome from './UserHome';
 import {hideLoader} from '../actions/loading'
 
-const Home = ({currentUser, users, hideLoader}) => {
+const Home = ({currentUser, users, hideLoader, myWorkouts}) => {
     const userId = useLocation().pathname.split("/")[2]
     const user = userId ? users.data ? users.data.filter((u) => u.id === userId)[0] : null : null
     
     return user ? 
         <UserHome hideLoader={hideLoader} userId = {userId} user = {user}/>
     : currentUser && !userId ? 
-        <CurrentUserHome hideLoader={hideLoader} currentUser = {currentUser}/>
+        <CurrentUserHome hideLoader={hideLoader} myWorkouts={myWorkouts} currentUser = {currentUser}/>
     : null
 }
 
-const mapStateToProps = ({currentUser, users}) =>{
+const mapStateToProps = ({currentUser, users, myWorkouts}) =>{
     return {
         currentUser,
-        users
+        users,
+        myWorkouts
     }
 }
 

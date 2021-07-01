@@ -17,7 +17,7 @@ const WorkoutCard = ({workout, i, userId}) => {
         <motion.div variants={item} onClick={() => showRef.current.open()}>
             <div class="card">
                 <header class="article-header">
-                    
+                    {workout.attributes.name}
                 </header>
                 <div class="author">
     

@@ -54,6 +54,12 @@
 
 .card .article-header {
     margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 65px;
+    font-size: 20px;
+    text-shadow: 0 0 20px #b452ff;
+    color: #b452ff
 }
 
 .card .author {
@@ -67,7 +73,7 @@
 }
 
 .card:not(:first-child) {
-    margin-left: -130px;
+    margin-top: -130px;
 }
 
 .card:hover {

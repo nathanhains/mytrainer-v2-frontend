@@ -9,12 +9,9 @@
 }
 
 .load {
-    left: 50%;
-    top: 30%;
+    left: 41%;
+    top: 42%;
     z-index: 1000;
     position: absolute;
-}
-
-.fa {
     color: #b452ff
 }

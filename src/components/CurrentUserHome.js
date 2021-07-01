@@ -1,44 +1,3 @@
-// import React, { useRef } from 'react'
-// import Workouts from './Workouts'
-// import "../home.css"
-// import {motion} from "framer-motion"
-// import {connect} from 'react-redux'
-// import {clearUsers} from '../actions/users'
-// import Logout from './Logout'
-// import Modal from './Modal'
-// import EditUserWrapper from './EditUserWrapper'
-
-// const CurrentUserHome = ({currentUser, hideLoader, clearUsers}) => {
-//     hideLoader()
-//     clearUsers()
-//     const showRef = useRef()
-//     const spinner = useRef()
-//     return (
-        
-//         <motion.div initial={{opacity: 0}}animate={{opacity: 1}} exit={{opacity:0 }} >
-//             <h2>Welcome! {currentUser.data.attributes.name} <i ref={spinner} className="fa fa-gear settings" onClick={(e)=> {
-//                     e.target.className="fa fa-gear fa-spin settings" 
-//                     showRef.current.open()
-//                 }}></i></h2>
-              
-//             <Modal unSpin={()=> spinner.current.className="fa fa-gear settings"} ref={showRef}>
-           
-//                 <h1>Settings</h1>
-//                 <EditUserWrapper user={currentUser}/>
-//                 <Logout/>
-//             </Modal>
-//             <img className="profile" src={currentUser.data.attributes.avatar}/>
-//             <h4>Followers: {currentUser.data.attributes.followers.length} Following: {currentUser.data.attributes.followees.length}</h4>
-//             <Workouts/>
-//         </motion.div>
-//     )
-// }
-
-
-
-// export default connect(null, ({clearUsers}))(CurrentUserHome)
-
-
 import React, { useRef } from 'react'
 import Workouts from './Workouts'
 import "../home.css"
@@ -49,7 +8,7 @@ import Logout from './Logout'
 import Modal from './Modal'
 import EditUserWrapper from './EditUserWrapper'
 
-const CurrentUserHome = ({currentUser, hideLoader, clearUsers}) => {
+const CurrentUserHome = ({currentUser, hideLoader, clearUsers, myWorkouts}) => {
     hideLoader()
     clearUsers()
     const showRef = useRef()
@@ -81,7 +40,7 @@ const CurrentUserHome = ({currentUser, hideLoader, clearUsers}) => {
                     </motion.div>
                 </div>
                     <motion.div className="ratios" initial={{opacity: 0}}animate={{opacity: 1}} exit={{opacity:0 }} >
-                        <h4 className= "align"><span className="section number">{0}<span className="section grayed">Workouts</span></span></h4>
+                        <h4 className= "align"><span className="section number">{myWorkouts.length}<span className="section grayed">Workouts</span></span></h4>
                         <h4 className= "align"><span className="section number">{currentUser.data.attributes.followers.length}<span className="section grayed">Followers</span></span></h4>
                         <h4 className="align"><span className="section number">{currentUser.data.attributes.followees.length}<span  className="section grayed">Following</span></span></h4>
                     </motion.div>
