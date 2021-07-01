@@ -109,12 +109,14 @@ img {
     filter: grayscale(0%) opacity(1);
     background: #1d1d26;
     color: var(--text-secondary);
+    
   }
 
   .workout {
     filter: grayscale(0%) opacity(1);
     background: indigo;
     color: var(--text-secondary);
+    box-shadow: 0 0 10px #b452ff;
   }
 
   .link-text {

@@ -63,7 +63,6 @@ const CurrentUserHome = ({currentUser, hideLoader, clearUsers}) => {
                 
                 <div className="bottom">
                     <div className="profile-main">
-                        <div className="borderBottom">
                     <div className="profile-container">
                         <img className="profile" src={currentUser.data.attributes.avatar}/>
                     </div>
@@ -79,7 +78,6 @@ const CurrentUserHome = ({currentUser, hideLoader, clearUsers}) => {
                             <EditUserWrapper user={currentUser}/>
                             <Logout/>
                         </Modal>
-                        <Workouts/>
                     </motion.div>
                 </div>
                     <motion.div className="ratios" initial={{opacity: 0}}animate={{opacity: 1}} exit={{opacity:0 }} >
@@ -87,8 +85,14 @@ const CurrentUserHome = ({currentUser, hideLoader, clearUsers}) => {
                         <h4 className= "align"><span className="section number">{currentUser.data.attributes.followers.length}<span className="section grayed">Followers</span></span></h4>
                         <h4 className="align"><span className="section number">{currentUser.data.attributes.followees.length}<span  className="section grayed">Following</span></span></h4>
                     </motion.div>
+
+                    
                     </div>
+                            
+                    <div className="workouts">
+                        <Workouts/>
                     </div>
+                    
                 </div>
         </div>
         </div>

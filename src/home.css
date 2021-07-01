@@ -25,6 +25,7 @@
     background: #23232e;
 }
 
+
 .profile {
     display: flex;
     position: absolute;
@@ -80,4 +81,12 @@ span {
     height: 25vh;
     border-bottom: 1px solid #484848;
     border-top: 1px solid #484848;
+}
+
+.workouts {
+  position:absolute;
+  width: 100%;
+  height:auto;
+  min-height: 100px;
+    
 }
