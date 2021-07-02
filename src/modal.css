@@ -1,3 +1,4 @@
+
 .modal-backdrop {
   position: fixed;
   height: 100vh;
@@ -12,7 +13,7 @@
   position: fixed;
   width: 300px;
   height: 300px;
-  background: white;
+  background: #23232e;
   margin: auto;
   top: 0;
   bottom: 0;
@@ -23,4 +24,78 @@
   border-radius: 17px;
   box-shadow: 0 0 30px rgba(0,0,0,0.1);
   z-index: 998;
+  overflow-y: scroll;
 }
+
+.formDisplayName {
+  color: #b452ff;
+  text-shadow: 0 0 30px #b452ff;
+  display: flex;
+}
+
+.editFormContainerMain {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -40px;
+}
+
+.image-upload {
+  display: none;
+}
+.avatar {
+  margin-top: 5%;
+  margin-left: 28.5%;
+  border-radius: 50%;
+  border-color: #23232e;
+  border: 4px solid #23232e;
+  width: 10vh;
+  height: 10vh;
+  cursor: pointer;
+}
+
+.editFormButtonSubmit {
+    position: absolute;
+    bottom: 6%;
+    right: 10%;
+    width: 20%;
+    padding: 11px;
+    color: #b452ff;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 100px 100px 100px 100px;
+    cursor: pointer;
+    transition: all, 240ms ease-in-out;
+    text-align: center;
+    background-color: #4B0082;
+    background-image: linear-gradient(43deg, #4B0082 0%, purple 46%, indigo 100%);
+}
+
+.editFormButtonEdit:hover {
+    filter: brightness(1.03);
+}
+
+.editFormButtonLogout {
+  position: absolute;
+  bottom: 6%;
+  left: 10%;
+  width: 20%;
+  padding: 11px;
+  color: #b452ff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 100px 100px 100px 100px;
+  cursor: pointer;
+  transition: all, 240ms ease-in-out;
+  text-align: center;
+  background-color: #4B0082;
+  background-image: linear-gradient(43deg, #4B0082 0%, purple 46%, indigo 100%);
+}
+
+.editFormButtonLogout:hover {
+  filter: brightness(1.03);
+}
+

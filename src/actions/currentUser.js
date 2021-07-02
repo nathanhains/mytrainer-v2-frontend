@@ -122,7 +122,7 @@ export const updateUser = (userData) => {
             if (user.error) {
                 alert(user.error)
             }else{
-                dispatch(setCurrentUser(user.user))
+                dispatch(setCurrentUser(user))
             }
         })
         .catch(console.log)

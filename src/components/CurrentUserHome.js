@@ -4,7 +4,7 @@ import "../home.css"
 import {motion} from "framer-motion"
 import {connect} from 'react-redux'
 import {clearUsers} from '../actions/users'
-import Logout from './Logout'
+
 import Modal from './Modal'
 import EditUserWrapper from './EditUserWrapper'
 
@@ -13,6 +13,7 @@ const CurrentUserHome = ({currentUser, hideLoader, clearUsers, myWorkouts}) => {
     clearUsers()
     const showRef = useRef()
     const spinner = useRef()
+
     return (
         <div className="main">
         <div className="whole">
@@ -32,10 +33,8 @@ const CurrentUserHome = ({currentUser, hideLoader, clearUsers, myWorkouts}) => {
                             showRef.current.open()
                             }}></i><span className="section grayed">@{currentUser.data.attributes.username}</span></h2>
               
-                        <Modal unSpin={()=> spinner.current.className="fa fa-gear settings"} ref={showRef}>
-                            <h1>Settings</h1>
+                        <Modal className="modal" unSpin={()=> spinner.current.className="fa fa-gear settings"} ref={showRef}>
                             <EditUserWrapper user={currentUser}/>
-                            <Logout/>
                         </Modal>
                     </motion.div>
                 </div>

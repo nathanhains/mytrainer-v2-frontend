@@ -6,7 +6,6 @@
 
 .whole {
     position: absolute;
-    z-index: 10;
     display: table;
     height: 100%;
     width: 100%;
@@ -39,10 +38,10 @@
 }
 
 .profile-headings {
-    display: flex;
     position: absolute;
     top: 35%;
-    left: 11.5%;
+    left: -9%;
+    width: 60%;
     padding-top: 5px;
 }
 

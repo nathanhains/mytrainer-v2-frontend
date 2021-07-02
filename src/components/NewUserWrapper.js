@@ -5,7 +5,7 @@ import {showLoader} from '../actions/loading'
 
 import User from './User'
 
-const NewUserWrapper = ({signup, showLoader, history}) => {
+const NewUserWrapper = ({signup, showLoader, history, currentUser}) => {
     
     const handleSubmit = (e, userFormData) => {
         e.preventDefault()
@@ -13,7 +13,8 @@ const NewUserWrapper = ({signup, showLoader, history}) => {
         signup(userFormData, history)
     }
 
-    return <User handleSubmit={handleSubmit} display="Sign up"/>
+    return <User handleSubmit={handleSubmit} display="Sign up"/> 
+
 }
 
 export default connect(null, {signup, showLoader})(NewUserWrapper)

@@ -95,6 +95,7 @@ img {
   
   .nav-link {
     display: flex;
+    position: relative;
     align-items: center;
     height: 5rem;
     color: var(--text-primary);
@@ -103,16 +104,20 @@ img {
     transition: var(--transition-speed);
     border-radius: 50px;
     cursor: pointer;
+    z-index: 13;
   }
   
   .nav-link:hover {
+    position:relative;
+    z-index: 13;
     filter: grayscale(0%) opacity(1);
     background: #1d1d26;
     color: var(--text-secondary);
-    
   }
 
   .workout {
+    position:relative;
+    z-index: 14;
     filter: grayscale(0%) opacity(1);
     background: indigo;
     color: var(--text-secondary);
@@ -180,7 +185,6 @@ img {
       height: 5rem;
       border-top: 1px solid #484848;
       border-right: 0px solid;
-      z-index: 13
     }
   
     .logo {
@@ -231,19 +235,3 @@ img {
     }
   }
   
-  
-  .theme-icon {
-    display: none;
-  }
-  
-  .dark #darkIcon {
-    display: block;
-  }
-  
-  .light #lightIcon {
-    display: block;
-  }
-  
-  .solar #solarIcon {
-    display: block;
-  }

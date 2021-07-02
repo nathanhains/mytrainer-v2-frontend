@@ -16,7 +16,8 @@ export const setEditUserForm = user => {
     const userFormData = {
         name: user.data.attributes.name,
         username: user.data.attributes.username,
-        email: user.data.attributes.email
+        email: user.data.attributes.email,
+        avatar: user.data.attributes.avatar
     }
 
     return {

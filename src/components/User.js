@@ -5,7 +5,7 @@ import {motion} from 'framer-motion'
 import {setEditUserForm} from '../actions/userForm'
 import {AccountContext} from './AccountContext'
 
-const User = ({userFormData, updateUserForm, handleSubmit, display, hidePassword}) => {
+const User = ({userFormData, updateUserForm, handleSubmit, display, hidePassword, currentUser}) => {
 
     const handleInputChange = e => {
         const {name, value} = e.target
@@ -28,20 +28,10 @@ const User = ({userFormData, updateUserForm, handleSubmit, display, hidePassword
         reader.readAsDataURL(e.target.files[0])
     }
 
+    
     const {switchToSignin} = useContext(AccountContext);
 
     return (
-        // <motion.div initial={{opacity: 0}}animate={{opacity: 1}} exit={{opacity:0 }}>
-        // <form onSubmit={(e) => handleSubmit(e, userFormData)}>
-            // <input type="text" placeholder="Name" name="name" onChange={handleInputChange} value={userFormData.name}/>
-            // <input type="text" placeholder="Username" name="username" onChange={handleInputChange} value={userFormData.username}/>
-            // <input type="text" placeholder="email" name="email" onChange={handleInputChange} value={userFormData.email}/>
-            // <input type={hidePassword ? "hidden" :"password"} placeholder="Password" name="password" onChange={handleInputChange} value={userFormData.password}/>
-            // <input type={hidePassword ? "hidden" :"password"} placeholder="Confirm Password" name="password_confirmation" onChange={handleInputChange} value={userFormData.password_confirmation}/>
-            // <input type="file" name="avatar" onChange={handleImageUpload}/>
-            // <input type="submit" value={display}/>
-        // </form>
-        // </motion.div>
         <motion.div initial={{opacity: 0}}animate={{opacity: 1}} exit={{opacity:0 }}>
         <div className="formContainerMain">
 
