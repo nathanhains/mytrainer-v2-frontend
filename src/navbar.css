@@ -180,6 +180,7 @@ img {
       height: 5rem;
       border-top: 1px solid #484848;
       border-right: 0px solid;
+      z-index: 13
     }
   
     .logo {

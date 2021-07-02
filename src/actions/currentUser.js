@@ -5,6 +5,7 @@ import {clearExercises} from './exercises'
 import {hideLoader} from './loading'
 import {getUsers, clearUsers} from './users'
 
+// whileTap={{ scale: 0.9 }}
 
 export const setCurrentUser = user => {
     return {
