@@ -22,7 +22,7 @@ const WorkoutExercises = forwardRef((props, ref) => {
                     onClick={() => {
                         setTimeout(() => {
                             props.resetClicked()
-                          }, 150);
+                        }, 150);
                         setOpen(false)}}
                     className="sure-backdrop"/>
                 <motion.div 
@@ -52,12 +52,16 @@ const WorkoutExercises = forwardRef((props, ref) => {
                             opacity: 0
                         }}
                         className="sure-content-wrapper">
-                            <h1>Exercises</h1>
-                            {props.exercises.map((e, i) => <WorkoutExerciseCard addExercise={props.addExercise} removeExercise={props.removeExercise} exercise={e} key={i}/>)}
-                            <button onClick={()=> {
-                                setOpen(false) 
-                                props.sendExercises()
-                            }}>Add</button>
+                            <h1 className="exerciseDisplayLogo formDisplayName">{props.addedExercises.length}</h1>
+                            <div className = "setContainerMain">
+                                <div className="sets">
+                                    {props.exercises.map((e, i) => <WorkoutExerciseCard addExercise={props.addExercise} removeExercise={props.removeExercise} exercise={e} key={i}/>)}
+                                </div>
+                                <button className="exerciseFormButtonSubmit" onClick={()=> {
+                                    setOpen(false) 
+                                    props.sendExercises()
+                                }}><i className="fa fa-plus"></i></button>
+                            </div>
                     </motion.div>
             </>
             )}

@@ -54,6 +54,7 @@ export const signup = (credentials, history) => {
             const userInfo = {
                 user: credentials
             }
+            console.log(userInfo)
             return fetch("http://localhost:3000/api/v1/signup", {
                 method: "POST",
                 headers: {

@@ -4,6 +4,7 @@ import {updateWorkout, deleteWorkout} from '../actions/myWorkouts'
 import {setEditWorkoutForm, resetWorkoutForm} from '../actions/workoutForm'
 import Sure from './Sure'
 import WorkoutForm from './WorkoutForm'
+import '../modal.css'
 
 class EditWorkoutFormWrapper extends React.Component{
 
@@ -38,7 +39,7 @@ class EditWorkoutFormWrapper extends React.Component{
     }
     render() {
     return <>
-    <WorkoutForm handleSubmit={this.handleSubmit} display="Update"/>
+    <WorkoutForm handleSubmit={this.handleSubmit} />
     <button onClick={() => this.setState({clicked: true})}>Delete</button>
     {this.state.clicked ? <Sure cancel={()=> this.setState({clicked: false})} delete={() => {
         this.props.closeModal()

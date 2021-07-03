@@ -1,0 +1,37 @@
+.setCard {
+    cursor: pointer;
+    box-shadow: 0 0 20px #b452ff;
+    min-width: 100px;
+    height: 80%;
+    width: 80%;
+    border-radius: 16px;
+    background-color: #23232e;
+    display: flex;
+    flex-direction: row;
+    padding: 1.0rem;
+    transition: 0.2s;
+    margin-left: 6px;
+}
+
+.setCard:hover {
+    transform: translateY(-1rem);
+}
+
+.setCard:hover~.card{
+    transform: translateX(130px);
+}
+
+.setContainerMain {
+    margin-left: -37px;
+    overflow-x: visible;
+    float: left;
+    align-items: center;
+    overflow-y: scroll;
+    margin-top: -60px;
+    height: 127.5%;
+    width: 159%;
+}
+
+.setContainerMain::-webkit-scrollbar  {
+    background-color: transparent;
+}

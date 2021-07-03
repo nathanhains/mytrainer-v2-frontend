@@ -35,7 +35,7 @@ const User = ({userFormData, updateUserForm, handleSubmit, display, hidePassword
         <motion.div initial={{opacity: 0}}animate={{opacity: 1}} exit={{opacity:0 }}>
         <div className="formContainerMain">
 
-            <form className="formContainer" onSubmit={handleSubmit}>
+            <form className="formContainer" onSubmit={(e) => handleSubmit(e, userFormData)}>
                 <div className="marginer">
                     <input type="text" className="input" placeholder="Name" name="name" onChange={handleInputChange} value={userFormData.name}/>
                     <input type="text" className="input" placeholder="Username" name="username" onChange={handleInputChange} value={userFormData.username}/>

@@ -10,6 +10,7 @@ const NewUserWrapper = ({signup, showLoader, history, currentUser}) => {
     const handleSubmit = (e, userFormData) => {
         e.preventDefault()
         showLoader()
+        console.log(userFormData)
         signup(userFormData, history)
     }
 

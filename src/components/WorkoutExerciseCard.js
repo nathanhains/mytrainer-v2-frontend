@@ -1,4 +1,5 @@
 import React from 'react'
+import '../sets.css'
 
 class WorkoutExerciseCard extends React.Component {
     constructor(){
@@ -22,7 +23,16 @@ class WorkoutExerciseCard extends React.Component {
 
     render(){
         return <>
-            <h4 style={{backgroundColor: this.state.bgColor}} onClick={()=> this.state.bgColor === "" ?  this.add(this.props.exercise) : this.remove(this.props.exercise)}>{this.props.exercise.attributes.name}</h4>
+            <div className="setCard" style={{backgroundColor: this.state.bgColor}} onClick={()=> this.state.bgColor === "" ?  this.add(this.props.exercise) : this.remove(this.props.exercise)}>
+                <header className="article-header" >
+                    <span className="formDisplayName">{this.props.exercise.attributes.name}</span> {this.state.bgColor !== "" ? <i className="fa fa-check-square formDisplayName"></i> : null}
+                    <p className="smallText formDisplayName">{this.props.exercise.attributes.category.data.attributes.name}</p>
+                </header>
+                <div className="author">
+    
+                    
+                </div>
+            </div>
         </>
             
         

@@ -43,7 +43,7 @@ const Login = ({loginFormData, updateLoginForm, login, history, showLoader}) => 
                     <input type="text" name="username" className="input" placeholder="Username" onChange={handleInputChange} value={loginFormData.username}/>
                     <input type="password" name="password" className="input" placeholder="Password" onChange={handleInputChange} value={loginFormData.password}/>
                 </div>
-                <a className="mutedLink"></a>
+                <p className="mutedLink"></p>
                 <input className="submitButton" type="submit" value="Sign in"/>
             </form>
             

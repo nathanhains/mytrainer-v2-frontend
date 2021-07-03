@@ -90,7 +90,7 @@ span {
     
 }
 
-button {
+.animate {
     border-radius: 50px;
     background: linear-gradient(to right, purple, indigo) !important;
     border: none;
