@@ -61,7 +61,7 @@ const Search = ({users, currentUser, getUsers}) => {
                             pathname: `/users/${user.id}`,
                             props: { user: user }
                           }}>  <div className="searchProfileMain">
-                                <img className="searchProfile" src={user.attributes.avatar}/>
+                                <img className="searchProfile" alt="User Avatar" src={user.attributes.avatar}/>
                                 <h5 className="searchLink">{user.attributes.username}</h5>
                               </div>
                               </Link></motion.div>) : null}

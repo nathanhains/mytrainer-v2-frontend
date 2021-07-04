@@ -1,10 +1,9 @@
 import React, {useState} from 'react'
-import {Link} from 'react-router-dom'
 import {motion} from 'framer-motion'
 import '../welcome.css'
 import Login from './Login'
-import {Provider} from 'react-redux'
 import {AccountContext} from './AccountContext'
+import {hideLoader} from '../actions/loading'
 import NewUserWrapper from './NewUserWrapper'
 
 const backdropVariants = {
@@ -27,7 +26,7 @@ const expandingTransition = {
     duration: 2.3,
     stiffness: 30
 }
-
+hideLoader()
 const Welcome = () => {
     const [isExpanded, setExpanded] = useState(false)
     const [active, setActive] = useState('signin')

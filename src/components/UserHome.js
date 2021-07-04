@@ -27,7 +27,7 @@ const UserHome = ({user, hideLoader, userId, currentUser}) => {
                 <div className="bottom">
                     <div className="profile-main">
                     <div className="profile-container">
-                        <img className="profile" src={user.attributes.avatar}/>
+                        <img className="profile" src={user.attributes.avatar} alt="User Avatar"/>
                     </div>
                     <div className="profile-headings">
                     <motion.div initial={{opacity: 0}}animate={{opacity: 1}} exit={{opacity:0 }} >

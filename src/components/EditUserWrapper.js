@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {updateUser} from '../actions/currentUser'
 import {setEditUserForm, resetUserForm, updateUserForm} from '../actions/userForm'
-import User from './User'
 import {motion} from 'framer-motion'
 import Logout from './Logout'
 import '../modal.css'
@@ -65,7 +64,7 @@ class EditUserFormWrapper extends React.Component{
                     <span className="formDisplayName">Username</span><input type="text" className="input" placeholder="Username" name="username" onChange={this.handleInputChange} value={this.props.userFormData.username}/>
                     <span className="formDisplayName">Email</span><input type="text" className="input" placeholder="Email" name="email" onChange={this.handleInputChange} value={this.props.userFormData.email}/>
                     <label className= "input" for="avatar">
-                         <img className="avatar" src={this.props.userFormData.avatar}/>
+                         <img className="avatar" src={this.props.userFormData.avatar} alt="User Avatar"/>
                     </label>
                     <input type={"file"} className="image-upload" id="avatar" name="avatar" onChange={this.handleImageUpload}/> 
                 </div>
