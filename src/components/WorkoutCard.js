@@ -20,22 +20,32 @@ const WorkoutCard = ({workout, i, userId}) => {
                     {workout.attributes.name}
                 </header>
                 <div class="author">
+
     
-                    
                 </div>
             </div>
         </motion.div>
         <Modal ref={showRef}>
-            <h1>{workout.attributes.name}</h1>
-            <h2>{workout.attributes.notes}</h2>
+        <h1 className="formDisplayName formDisplayLogo"><i className="fa fa-list settings"></i></h1>
+        <div className="editFormContainerMain">
+        
+            <h2 className="formDisplayName workoutName">{workout.attributes.name}</h2>
+            <h4 class="formDisplayName workoutNotes" >{workout.attributes.notes}</h4>
+            <br></br>
+            <hr/>
+        
+        
             {workout.attributes.workout_exercises.data.map(w=> 
             <>
-            <h3>{w.attributes.exercise.data.attributes.name}</h3>
-            <h4>Sets</h4>
-            {w.attributes.set_groups.data.map((s, i)=> <h4 key={i}>{i+1}. Reps: {s.attributes.reps} Lbs: {s.attributes.lbs}</h4>)}
+            <span class="formDisplayName workoutExerciseName" key={i}> {w.attributes.exercise.data.attributes.name}</span> 
+            <div className="workoutExerciseVars">
+                <span className="formDisplayName left-ish workoutExerciseSetMain">Set{w.attributes.set_groups.data.map((s, i)=> <span className="formDisplayName workoutExerciseSetChild">{i + 1}</span>)}</span><span className="formDisplayName left-ish workoutExerciseSetMain">Reps{w.attributes.set_groups.data.map((s, i)=> <span className="formDisplayName workoutExerciseSetChild">{s.attributes.reps ? s.attributes.reps : "N/A"}</span>)}</span> <span className="formDisplayName workoutExerciseSetMain">Lbs{w.attributes.set_groups.data.map((s, i)=> <span className="formDisplayName workoutExerciseSetChild">{s.attributes.lbs ? s.attributes.lbs : "N/A"}</span>)}</span>
+            </div>
             </>
             )}
             {!userId ? <EditWorkoutFormWrapper closeModal={()=> showRef.current.close()} workout={workout}/> : null}
+        <br></br>
+        </div>
         </Modal>
         </div>
     )
