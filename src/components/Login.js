@@ -44,7 +44,7 @@ const Login = ({loginFormData, updateLoginForm, login, history, showLoader}) => 
                     <input type="password" name="password" className="input" placeholder="Password" onChange={handleInputChange} value={loginFormData.password}/>
                 </div>
                 <p className="mutedLink"></p>
-                <input className="submitButton" type="submit" value="Sign in"/>
+                <button className="submitButton" type="submit"><span>Sign In</span></button>
             </form>
             
             <a className="mutedLink">Don't have an account? <a onClick={switchToSignup} className="boldLink">Sign Up</a></a>

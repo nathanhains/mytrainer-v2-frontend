@@ -69,7 +69,7 @@ class EditUserFormWrapper extends React.Component{
                     </label>
                     <input type={"file"} className="image-upload" id="avatar" name="avatar" onChange={this.handleImageUpload}/> 
                 </div>
-                    <input className="editFormButtonSubmit" type="submit" value="Save"/>
+                    <button className="editFormButtonSubmit" type="submit"><span>Save</span></button>
             </form>
             <Logout />
         </div>

@@ -50,16 +50,18 @@ const Sure = forwardRef((props, ref) => {
                             opacity: 0
                         }}
                         className="sure-content-wrapper">
-                        <h2>Are you sure?</h2>
-                        <h4><button onClick={()=> {
+                        <div className="sure">
+                        <h2 className="sureText">Are you sure?</h2>
+                        <h4><button className="sureChoices" onClick={()=> {
                             setTimeout(() => {
                             props.cancel()
                           }, 100);
-                        setOpen(false)}}>Cancel</button></h4>
-                        <h3><button onClick={()=> {
+                        setOpen(false)}}><span>Cancel</span></button></h4>
+                        <h3><button className="sureChoices" onClick={()=> {
                             setOpen(false) 
                             props.delete()
-                            }}>Delete</button></h3>
+                            }}><span>Delete</span></button></h3>
+                        </div>
                     </motion.div>
             </>
             )}

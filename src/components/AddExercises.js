@@ -19,7 +19,7 @@ class AddExercises extends React.Component{
             this.props.getExercises()
             console.log(this.state.addedExercises)
             this.setState({clicked:true})
-            }}>Add Exercise</button>
+            }}><span>Add Exercise</span></button>
         {this.state.clicked ? <WorkoutExercises 
         addedExercises={this.state.addedExercises}
         addExercise={(e) => {

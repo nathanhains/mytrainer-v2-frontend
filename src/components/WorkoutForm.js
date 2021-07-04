@@ -43,7 +43,7 @@ const WorkoutForm = ({workoutFormData, updateWorkoutForm, handleSubmit, user_id,
         <h1 className="formDisplayName formDisplayLogo">{display === "edit"  ? <i className={ "fa fa-ellipsis editWorkoutLogo"}><h2>...</h2></i> : <i className={ "fa fa-plus settings"}></i>}</h1>
         <div className="editFormContainerMain">
         <form className="formContainer" onSubmit={e => handleSubmit(e, workoutFormData, user_id, modalRef)}>
-            <input className="input" type="text" onChange={handleChange} placeholder="Workout Name" name="name" value={workoutFormData.name}/> <input className="workoutFormButtonSubmit" type="submit" value="Save"/>
+            <input className="input" type="text" onChange={handleChange} placeholder="Workout Name" name="name" value={workoutFormData.name}/> <button className="workoutFormButtonSubmit" type="submit"><span>Save</span></button>
             <input className="input" type="text" onChange={handleChange} placeholder="Notes" name="notes" value={workoutFormData.notes}/>
             <br></br>
         </form>

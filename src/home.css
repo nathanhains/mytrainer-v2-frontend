@@ -129,3 +129,14 @@ span {
     opacity: 1;
     right: 0;
   }
+
+  @media only screen and (min-width: 600px) {
+    .profile-headings {
+        left: -18%;
+    }
+
+    .animate {
+        left: 45%
+    }
+    
+}

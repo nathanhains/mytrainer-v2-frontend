@@ -45,7 +45,7 @@ const User = ({userFormData, updateUserForm, handleSubmit, display, hidePassword
                     <input type={!hidePassword ? "hidden" : "file"} className="input" name="avatar" onChange={handleImageUpload}/> 
                 </div>
                     <a className="padding"></a>
-                    <input className="submitButton" type="submit" value={display}/>
+                    <button className="submitButton" type="submit" ><span>{display}</span></button>
             </form>
            
             

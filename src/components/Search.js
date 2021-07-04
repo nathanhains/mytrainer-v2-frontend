@@ -27,10 +27,6 @@ const Search = ({users, currentUser, getUsers}) => {
     const modalRef = useRef()
     return (
         <>
-            {/* <button onClick={() => {
-                getUsers()
-                modalRef.current.open()
-                }}>Search</button> */}
             <li class="nav-item">
                 <a onClick={() => {
                     getUsers()
@@ -49,20 +45,29 @@ const Search = ({users, currentUser, getUsers}) => {
                 </a>
             </li>
             <Modal ref={modalRef}>
-                <input type="text" autoFocus={true} onChange={e => setSearchTerm(e.target.value)}/>
-                    {searchTerm === "" ? <h3>Suggested Users:</h3> : null}
-                    <motion.ul variants={container} initial="hidden" animate="show">
+                    <h1 className="formDisplayName formDisplayLogo"><i className={ "fa fa-search editWorkoutLogo"}></i></h1>
+                    <div className="editFormContainerMain">
+                    <input className="searchInput" type="text" autoFocus={true} onChange={e => setSearchTerm(e.target.value)}/>
+                        <br></br>
+                        {searchTerm === "" ? <h3 className = "formDisplayName">Suggested Users:</h3> : null}
+                    <motion.div variants={container} initial="hidden" animate="show">
                         { users.data ? users.data.filter((u)=> {
                             if (searchTerm === "" && u.attributes.name !== currentUser.data.attributes.name) {
                                 return u
                             }else if (u.attributes.name.toLowerCase().includes(searchTerm.toLowerCase()) && u.attributes.name !== currentUser.data.attributes.name){
                                 return u
                             }
-                        }).map((user,key)=> <motion.li variants={item} initial="hidden" animate="show" key={key}><Link onClick={() => modalRef.current.close()} to={{
+                        }).map((user,key)=> <motion.div className="formDisplayName searchLink" variants={item} initial="hidden" animate="show" key={key}><Link style={{ textDecoration: 'none', color: '#b452ff', 'align-items': 'center'}} onClick={() => modalRef.current.close()} to={{
                             pathname: `/users/${user.id}`,
                             props: { user: user }
-                          }}>{user.attributes.name}</Link></motion.li>) : null}
-                    </motion.ul>
+                          }}>  <div className="searchProfileMain">
+                                <img className="searchProfile" src={user.attributes.avatar}/>
+                                <h5 className="searchLink">{user.attributes.username}</h5>
+                              </div>
+                              </Link></motion.div>) : null}
+                    </motion.div>
+                    </div>
+                
                 </Modal>
         </>
 

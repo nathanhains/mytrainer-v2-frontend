@@ -63,8 +63,8 @@
 .editFormButtonSubmit {
     position: absolute;
     bottom: 6%;
-    right: 10%;
-    width: 20%;
+    right: 8%;
+    width: 25%;
     padding: 11px;
     color: #b452ff;
     font-size: 15px;
@@ -78,15 +78,39 @@
     background-image: linear-gradient(43deg, #4B0082 0%, purple 46%, indigo 100%);
 }
 
-.editFormButtonEdit:hover {
-    filter: brightness(1.03);
+.editFormButtonSubmit span {
+  font-size: 12px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.4s;
+}
+.editFormButtonSubmit span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.editFormButtonSubmit:hover span {
+  padding-right: 25px;
+}
+
+.editFormButtonSubmit:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.editFormButtonSubmit:hover {
+  filter: brightness(1.03);
 }
 
 .editFormButtonLogout {
   position: absolute;
   bottom: 6%;
-  left: 10%;
-  width: 20%;
+  left: 8%;
+  width: 25%;
   padding: 11px;
   color: #b452ff;
   font-size: 15px;
@@ -100,10 +124,33 @@
   background-image: linear-gradient(43deg, #4B0082 0%, purple 46%, indigo 100%);
 }
 
-.editFormButtonLogout:hover {
-  filter: brightness(1.03);
+.editFormButtonLogout span {
+  font-size: 12px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.4s;
+}
+.editFormButtonLogout span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.editFormButtonLogout:hover span {
+  padding-right: 25px;
 }
 
+.editFormButtonLogout:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.workoutFormButtonEdit:hover {
+  filter: brightness(1.03);
+}
 
 .workoutFormButtonSubmit {
   position: absolute;
@@ -112,7 +159,6 @@
   width: 20%;
   padding: 11px;
   color: #b452ff;
-  font-size: 15px;
   font-weight: 600;
   border: none;
   border-radius: 100px 100px 100px 100px;
@@ -121,6 +167,31 @@
   text-align: center;
   background-color: #4B0082;
   background-image: linear-gradient(43deg, #4B0082 0%, purple 46%, indigo 100%);
+}
+
+
+.workoutFormButtonSubmit span {
+  font-size: 12px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.4s;
+}
+.workoutFormButtonSubmit span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.workoutFormButtonSubmit:hover span {
+  padding-right: 25px;
+}
+
+.workoutFormButtonSubmit:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 .workoutFormButtonEdit:hover {
@@ -142,6 +213,60 @@
   background-color: #4B0082;
   background-image: linear-gradient(43deg, #4B0082 0%, purple 46%, indigo 100%);
 }
+
+.add span {
+  font-size: 20px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.4s;
+}
+.add span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.add:hover span {
+  padding-right: 25px;
+}
+
+.add:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.searchInput {
+  width:80%;
+  height: 42px;
+  outline: none;
+  border: 1.4px solid transparent;
+  padding: 0px 10px;
+  border-bottom: 1.4px solid transparent; 
+  transition: all 200ms ease-in-out;
+  font-size: 12px;
+  background-color: #23232e;
+}
+
+.searchInput, select, textarea {
+  color: rgba(200, 200, 200, 0.8);
+}
+
+.searchInput {
+  border-bottom: 1.5px solid rgba(200, 200, 200, 0.4);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-bottom: 2px solid #b452ff;
+}
+
+.searchInput::placeholder {
+  color: rgba(200, 200, 200, 1);
+}
+
 
 .setInput {
   height: 42px;
@@ -200,6 +325,30 @@
   background-color: #4B0082;
   background-image: linear-gradient(43deg, purple 0%, indigo 46%, purple 100%);
 } 
+
+.addSet span {
+  font-size: 15px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.4s;
+}
+.addSet span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.addSet:hover span {
+  padding-right: 25px;
+}
+
+.addSet:hover span:after {
+  opacity: 1;
+  right: 0;
+}
 
 .formDisplayLogo {
   position: relative;
@@ -312,3 +461,25 @@ hr {
   margin-top: -20%;
   margin-bottom: -7%;
 }
+
+.searchLink {
+  text-decoration: none;
+  display: block;
+  position: relative;
+  margin: 0;
+}
+
+.searchProfile {
+    display: inline-block;
+    border-radius: 50%;
+    border-color: #23232e;
+    border: 4px solid #23232e;
+    width: 5vh;
+    height: 5vh;
+}
+
+.searchProfileMain{
+  align-content: center;
+  text-align: center;
+}
+
