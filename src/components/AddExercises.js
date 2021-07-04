@@ -30,7 +30,8 @@ class AddExercises extends React.Component{
         sendExercises={()=> {
             this.setState({ clicked: false, addedExercises: []})
             this.props.clearExercises()
-            this.props.updateWorkoutForm({...this.props.workoutFormData, exercises: this.state.addedExercises})
+            this.state.addedExercises.map(aE => this.props.updateWorkoutForm({...this.props.workoutFormData, exercises: this.props.workoutFormData.exercises.concat(aE)}))
+            
         }} 
         resetClicked={() => {
             this.props.clearExercises()
