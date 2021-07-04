@@ -31,10 +31,7 @@ const WorkoutCard = ({workout, i, userId}) => {
         
             <h2 className="formDisplayName workoutName">{workout.attributes.name}</h2>
             <h4 class="formDisplayName workoutNotes" >{workout.attributes.notes}</h4>
-            <br></br>
             <hr/>
-        
-        
             {workout.attributes.workout_exercises.data.map(w=> 
             <>
             <span class="formDisplayName workoutExerciseName" key={i}> {w.attributes.exercise.data.attributes.name}</span> 
@@ -43,7 +40,7 @@ const WorkoutCard = ({workout, i, userId}) => {
             </div>
             </>
             )}
-            {!userId ? <EditWorkoutFormWrapper closeModal={()=> showRef.current.close()} workout={workout}/> : null}
+            {!userId ? <EditWorkoutFormWrapper closeModal={()=> showRef.current.close()} workout={workout}/> : <EditWorkoutFormWrapper closeModal={()=> showRef.current.close()} addWorkout="Add Workout" workout={workout}/>}
         <br></br>
         </div>
         </Modal>

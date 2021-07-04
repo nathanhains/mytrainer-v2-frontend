@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {updateWorkout, deleteWorkout} from '../actions/myWorkouts'
+import {updateWorkout, deleteWorkout, createWorkout} from '../actions/myWorkouts'
 import {setEditWorkoutForm, resetWorkoutForm} from '../actions/workoutForm'
 import Sure from './Sure'
 import WorkoutForm from './WorkoutForm'
@@ -26,21 +26,28 @@ class EditWorkoutFormWrapper extends React.Component{
     componentWillUnmount() {
         this.props.resetWorkoutForm() && this.setState({clicked: false})
     }
-
+    // adjust this 
     handleSubmit = (e, workoutFormData, user_id, modalRef) => {
-        const {updateWorkout, workout} = this.props
+        const {updateWorkout, workout, createWorkout} = this.props
         e.preventDefault()
+
+        this.props.addWorkout ? 
+        createWorkout({
+            ...workoutFormData,
+            user_id
+        }) :
         updateWorkout({
             ...workoutFormData,
             workout_id: workout.id,
             user_id
         })
+        
         modalRef.current.close()
     }
     render() {
     return <>
-    <WorkoutForm handleSubmit={this.handleSubmit} display="edit"/>
-    <i className="workoutDelete fa fa-trash fa-lg" onClick={() => this.setState({clicked: true})}></i>
+    <WorkoutForm handleSubmit={this.handleSubmit} display={this.props.addWorkout ? "add workout" : "edit"}/>
+    {this.props.addWorkout ? null : <i className="workoutDelete fa fa-trash fa-lg" onClick={() => this.setState({clicked: true})}></i>}
     {this.state.clicked ? <Sure cancel={()=> this.setState({clicked: false})} delete={() => {
         this.props.closeModal()
         setTimeout(() => {
@@ -50,4 +57,4 @@ class EditWorkoutFormWrapper extends React.Component{
     </>
 }}
 
-export default connect(null, {updateWorkout, setEditWorkoutForm, resetWorkoutForm, deleteWorkout})(EditWorkoutFormWrapper)
+export default connect(null, {updateWorkout, setEditWorkoutForm, resetWorkoutForm, deleteWorkout, createWorkout})(EditWorkoutFormWrapper)
