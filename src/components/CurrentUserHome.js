@@ -4,7 +4,6 @@ import "../home.css"
 import {motion} from "framer-motion"
 import {connect} from 'react-redux'
 import {clearUsers} from '../actions/users'
-
 import Modal from './Modal'
 import EditUserWrapper from './EditUserWrapper'
 

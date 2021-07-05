@@ -124,6 +124,10 @@ img {
     box-shadow: 0 0 10px #b452ff;
   }
 
+  .workout:hover {
+    box-shadow: 0 0 30px #b452ff;
+  }
+
   .link-text {
     display: none;
     margin-left: 1rem;

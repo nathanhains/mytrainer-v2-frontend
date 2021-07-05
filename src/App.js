@@ -8,7 +8,7 @@ import Notifications from './components/Notifications'
 import {getCurrentUser} from './actions/currentUser'
 import {showLoader} from './actions/loading'
 import {connect} from 'react-redux'
-import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Redirect, Route, Switch, useLocation} from 'react-router-dom'
 import PostSubmission from './components/PostSubmission'
 import {AnimatePresence} from "framer-motion"
 

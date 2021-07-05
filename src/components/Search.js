@@ -57,7 +57,7 @@ const Search = ({users, currentUser, getUsers}) => {
                             }else if (u.attributes.name.toLowerCase().includes(searchTerm.toLowerCase()) && u.attributes.name !== currentUser.data.attributes.name){
                                 return u
                             }
-                        }).map((user,key)=> <motion.div className="formDisplayName searchLink" variants={item} initial="hidden" animate="show" key={key}><Link style={{ textDecoration: 'none', color: '#b452ff', 'align-items': 'center'}} onClick={() => modalRef.current.close()} to={{
+                        }).map((user,key)=> <motion.div className="formDisplayName searchLink" variants={item} initial="hidden" animate="show" key={key}><Link style={{ textDecoration: 'none', color: '#b452ff'}} onClick={() => modalRef.current.close()} to={{
                             pathname: `/users/${user.id}`,
                             props: { user: user }
                           }}>  <div className="searchProfileMain">

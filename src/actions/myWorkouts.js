@@ -1,6 +1,7 @@
 import {resetWorkoutForm} from './workoutForm'
 import {successsfulPost, resetPost} from './postSubmission'
-
+import {setOurWorkouts, deleteWorkoutSuccessOur, addWorkoutSuccessOur, updateWorkoutSuccessOur} from './ourWorkouts'
+import {hideLoader} from './loading'
 export const setMyWorkouts = workouts => {
     return {
         type: "SET_MY_WORKOUTS",
@@ -36,10 +37,13 @@ export const updateWorkoutSuccess = workout => {
 }
 
 
-export const getMyWorkouts = () => {
+export const getMyWorkouts = (feed) => {
+    let url = new URL("http://localhost:3000/api/v1/workouts")
+    let params = feed ? {friends: true} : {friends: false}
+    Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
     return dispatch => {
         const token = localStorage.token;
-        return fetch("http://localhost:3000/api/v1/workouts", {
+        return fetch(url, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -51,6 +55,7 @@ export const getMyWorkouts = () => {
             if (response.error){
                 alert(response.error)
             }else {
+                feed ? dispatch(setOurWorkouts(response.data)) && dispatch(hideLoader()) :
                 dispatch(setMyWorkouts(response.data))
             }
         })
@@ -75,6 +80,7 @@ export const createWorkout = (workoutData) => {
                 alert(resp.error)
             }else{
                 dispatch(addWorkout(resp.data))
+                dispatch(addWorkoutSuccessOur(resp.data))
                 dispatch(resetWorkoutForm())
                 dispatch(successsfulPost())
 
@@ -105,6 +111,7 @@ export const updateWorkout = (workoutData) => {
                 alert(resp.error)
             }else{
                 dispatch(updateWorkoutSuccess(resp.data))
+                dispatch(updateWorkoutSuccessOur(resp.data))
             }
         })
         .catch(console.log)
@@ -122,7 +129,7 @@ export const deleteWorkout = (workoutData) => {
                 'Authorization': `Bearer ${token}`
             }
         })
-        .then(dispatch(deleteWorkoutSuccess(workoutData)) && dispatch(resetWorkoutForm()))
+        .then(dispatch(deleteWorkoutSuccess(workoutData)) && dispatch(deleteWorkoutSuccessOur(workoutData)) && dispatch(resetWorkoutForm()))
 
     }
 }

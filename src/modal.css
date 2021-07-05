@@ -68,7 +68,7 @@
     padding: 11px;
     color: #b452ff;
     font-size: 15px;
-    font-weight: 600;
+    text-transform: uppercase;
     border: none;
     border-radius: 100px 100px 100px 100px;
     cursor: pointer;
@@ -114,8 +114,8 @@
   padding: 11px;
   color: #b452ff;
   font-size: 15px;
-  font-weight: 600;
   border: none;
+  text-transform: uppercase;
   border-radius: 100px 100px 100px 100px;
   cursor: pointer;
   transition: all, 240ms ease-in-out;
@@ -159,10 +159,10 @@
   width: 20%;
   padding: 11px;
   color: #b452ff;
-  font-weight: 600;
   border: none;
   border-radius: 100px 100px 100px 100px;
   cursor: pointer;
+  text-transform: uppercase;
   transition: all, 240ms ease-in-out;
   text-align: center;
   background-color: #4B0082;
@@ -204,7 +204,7 @@
   padding: 10px;
   color: #b452ff;
   font-size: 15px;
-  font-weight: 600;
+  text-transform: uppercase;
   border: none;
   border-radius: 100px 100px 100px 100px;
   cursor: pointer;
@@ -315,8 +315,8 @@
   width: 60%;
   padding: 8px;
   color: #b452ff;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 15px;  
+  text-transform: uppercase;
   border: none;
   border-radius: 100px 100px 100px 100px;
   cursor: pointer;
@@ -365,7 +365,7 @@
   padding: 11px;
   color: #b452ff;
   font-size: 15px;
-  font-weight: 600;
+  text-transform: uppercase;
   border: none;
   border-radius: 100px 100px 100px 100px;
   cursor: pointer;
@@ -492,7 +492,7 @@ hr {
   padding: 8px;
   color: #b452ff;
   font-size: 15px;
-  font-weight: 600;
+  text-transform: uppercase;
   border: none;
   border-radius: 100px 100px 100px 100px;
   cursor: pointer;

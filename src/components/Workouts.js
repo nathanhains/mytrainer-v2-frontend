@@ -3,9 +3,9 @@ import WorkoutCard from './WorkoutCard'
 import {connect} from 'react-redux'
 import {motion} from 'framer-motion'
 import '../workout.css'
-const Workouts = ({myWorkouts, userWorkouts, userId}) => {
+const Workouts = ({myWorkouts, userWorkouts, userId, feed, ourWorkouts}) => {
 
-    const workouts = userWorkouts ? userWorkouts.map((w, i )=> <WorkoutCard workout={w} userId={userId} i={i} key={i}/>) : !userId && myWorkouts ? myWorkouts.map((w, i )=> <WorkoutCard workout={w} i={i} key={i}/>) : null
+    const workouts = userWorkouts ? userWorkouts.map((w, i )=> <WorkoutCard workout={w} userId={userId} i={i} key={i}/>) : feed ? ourWorkouts.map((w, i )=> <WorkoutCard workout={w} i={i} key={i} feed={feed}/>) : !userId && myWorkouts ? myWorkouts.map((w, i )=> <WorkoutCard workout={w} i={i} key={i}/>) : null
 
     const container = {
         hidden: { opacity: 0 },
@@ -16,13 +16,14 @@ const Workouts = ({myWorkouts, userWorkouts, userId}) => {
           }
         }
       }
-    return workouts.length > 0 ? <motion.div className="card-container" variants={container} initial="hidden" animate="show">{workouts}</motion.div> : null
+    return workouts.length > 0 ? <motion.div className={feed ? "feedCard-container" : "card-container"} variants={container} initial="hidden" animate="show">{workouts}</motion.div> : null
     
 }
 
-const mapStateToProps = ({myWorkouts}) => {
+const mapStateToProps = ({myWorkouts, ourWorkouts}) => {
     return {
-        myWorkouts
+        myWorkouts,
+        ourWorkouts
     }
 }
 

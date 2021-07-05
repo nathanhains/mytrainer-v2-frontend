@@ -1,0 +1,116 @@
+.feedProfile {
+    display: flex;
+    position: absolute;
+    border-radius: 50%;
+    border-color: #23232e;
+    border: 4px solid #23232e;
+    width: 20vh;
+    height: 20vh;
+    top: 15%;
+    left: 6%;
+    
+}
+.feedLogo {
+    display: flex;
+    align-items: center;
+    background-color :#23232e;
+    transition: var(--transition-speed);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.feedLogo:hover {
+    filter: grayscale(0%) opacity(1);
+    background: #23232e;
+    color: var(--text-secondary);
+  }
+  .feedLogo:hover svg{
+    filter: grayscale(0%) opacity(1);
+    background: #23232e;
+    color: var(--text-secondary);
+    text-shadow: 0 0 30px #b452ff;
+  }
+
+.feedLogo svg {
+    transition: var(--transition-speed);
+    color: var(--text-primary);
+    text-decoration: none;
+    filter: grayscale(100%) opacity(0.7);
+    width: 100%;
+    min-width: 2rem;
+    margin: 0 1.5rem;
+  }
+
+  .feedProfileMain {
+    height: 15vh;
+    border-bottom: 1px solid #484848;
+    border-top: 1px solid #484848;
+  }
+
+  .feedSection {
+    align-items: center;
+    position: absolute;
+    font-size: 40px;
+    margin-left: 45px;
+    margin-top:-5px;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    color: #b452ff;
+    text-shadow: 0 0 30px #b452ff;
+}
+
+.feedSectionFeed {
+    display: block;
+    margin-left: 65px;
+}
+
+.feedCard-container {
+    width: 100%;
+    overflow-y: scroll;
+    padding-top: 5px;
+    height: 358px;
+    background-color: purple;
+}
+
+.feedCard-container::-webkit-scrollbar {
+    display: none;
+}
+
+.feedWorkoutProfile {
+    display: inline-block;
+    border-radius: 50%;
+    border-color: #23232e;
+    border: 0px solid #23232e;
+    width: 6vh;
+    height: 6vh;
+    transition: var(--transition-speed);
+}
+
+.feedWorkoutProfile:hover {
+    box-shadow:  0 0 10px #b452ff;
+}
+
+.workout-name {
+    margin: 0;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 15px;
+    transition: var(--transition-speed);
+}
+
+.workout-name:hover {
+    filter: grayscale(0%) opacity(1)
+}
+
+@media only screen and (min-width: 600px) {
+    .feedCard-container {
+        height: 486px;
+        width: 94.4%;
+        float: right;
+    }
+
+    .feedSection {
+        margin-left: 115px;
+    }
+
+}

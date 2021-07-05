@@ -11,6 +11,7 @@ import workoutForm from './reducers/workoutForm'
 import postSubmission from './reducers/postSubmission'
 import loading from './reducers/loading'
 import friends from './reducers/friends'
+import ourWorkouts from './reducers/ourWorkouts'
 
 //users: users 
 const reducer = combineReducers({
@@ -23,7 +24,8 @@ const reducer = combineReducers({
     exercises,
     loading,
     users,
-    friends
+    friends,
+    ourWorkouts
   })
   
 // how to use middleware
