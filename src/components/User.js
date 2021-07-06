@@ -49,7 +49,7 @@ const User = ({userFormData, updateUserForm, handleSubmit, display, hidePassword
             </form>
            
             
-            <a className="mutedLink">Already have an account? <a onClick={switchToSignin}className="boldLink">Sign In</a></a>
+            <span className="mutedLink">Already have an account? <span onClick={switchToSignin}className="boldLink">Sign In</span></span>
         </div>
         </motion.div>
 

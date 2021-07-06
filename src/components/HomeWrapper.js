@@ -12,7 +12,7 @@ const Home = ({currentUser, users, hideLoader, myWorkouts}) => {
     
     return user && userId !== currentUser.data.id ? 
         <UserHome hideLoader={hideLoader} userId = {userId} user = {user}/>
-    : currentUser && !userId || currentUser && userId === currentUser.data.id ? 
+    : (currentUser && !userId) || (currentUser && userId === currentUser.data.id) ? 
         <CurrentUserHome hideLoader={hideLoader} myWorkouts={myWorkouts} currentUser = {currentUser}/>
     : null
 }

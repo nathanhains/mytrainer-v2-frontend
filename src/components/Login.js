@@ -47,7 +47,7 @@ const Login = ({loginFormData, updateLoginForm, login, history, showLoader}) => 
                 <button className="submitButton" type="submit"><span>Sign In</span></button>
             </form>
             
-            <a className="mutedLink">Don't have an account? <a onClick={switchToSignup} className="boldLink">Sign Up</a></a>
+            <span className="mutedLink">Don't have an account? <span onClick={switchToSignup} className="boldLink">Sign Up</span></span>
         </div>
         </motion.div>
     )

@@ -52,9 +52,9 @@ const Search = ({users, currentUser, getUsers}) => {
                         {searchTerm === "" ? <h3 className = "formDisplayName">Suggested Users:</h3> : null}
                     <motion.div variants={container} initial="hidden" animate="show">
                         { users.data ? users.data.filter((u)=> {
-                            if (searchTerm === "" && u.attributes.name !== currentUser.data.attributes.name) {
+                            if (searchTerm === "" && u.attributes.username !== currentUser.data.attributes.username) {
                                 return u
-                            }else if (u.attributes.name.toLowerCase().includes(searchTerm.toLowerCase()) && u.attributes.name !== currentUser.data.attributes.name){
+                            }else if (u.attributes.username.toLowerCase().includes(searchTerm.toLowerCase()) && u.attributes.username !== currentUser.data.attributes.username){
                                 return u
                             }
                         }).map((user,key)=> <motion.div className="formDisplayName searchLink" variants={item} initial="hidden" animate="show" key={key}><Link style={{ textDecoration: 'none', color: '#b452ff'}} onClick={() => modalRef.current.close()} to={{

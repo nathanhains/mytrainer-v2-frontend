@@ -369,12 +369,17 @@
   border: none;
   border-radius: 100px 100px 100px 100px;
   cursor: pointer;
-  transition: all, 240ms ease-in-out;
+  transition: var(--transition-speed);
   text-align: center;
   background-color: #4B0082;
   background-image: linear-gradient(43deg, #4B0082 0%, purple 46%, indigo 100%);
   box-shadow: 0 0 20px #23232e;
 }
+
+.exerciseFormButtonSubmit:hover {
+  box-shadow: 0 0 30px #b452ff;
+}
+
 
 .exerciseDisplayLogo{
   position: relative;

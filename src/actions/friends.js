@@ -4,6 +4,7 @@ import {setFollower} from './users'
 import {removeFollowing} from './currentUser'
 import {removeFollower} from './users'
 
+//do this so I can get the id of the friendship when somebody removes someone
 export const getFriends = (currentUser, user) => {
     return dispatch => {
         const token = localStorage.token;
@@ -54,7 +55,6 @@ export const addFriend = (currentUserId, userId) => {
             }
         })
         .catch(console.log)
-
     }
 }
 

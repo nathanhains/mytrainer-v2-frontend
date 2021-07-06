@@ -17,21 +17,21 @@ class AddExercises extends React.Component{
         <>
         <button className="add" onClick={() => {
             this.props.getExercises()
-            console.log(this.state.addedExercises)
-            this.setState({clicked:true})
+            this.setState({...this.state, clicked:true})
             }}><span>Add Exercise</span></button>
         {this.state.clicked ? <WorkoutExercises 
         addedExercises={this.state.addedExercises}
         addExercise={(e) => {
-            this.setState({addedExercises: this.state.addedExercises.concat(e)})
+            this.state.addedExercises !== [] ? 
+            this.setState({addedExercises: this.state.addedExercises.concat(e)}) :
+            this.setState({addedExercises: e})
         }
         } 
         removeExercise={(e) => this.setState({addedExercises: this.state.addedExercises.filter(addedE => addedE.id !== e.id)})}
         sendExercises={()=> {
-            this.setState({ clicked: false, addedExercises: []})
             this.props.clearExercises()
-            this.state.addedExercises.map(aE => this.props.updateWorkoutForm({...this.props.workoutFormData, exercises: this.props.workoutFormData.exercises.concat(aE)}))
-            
+            this.props.updateWorkoutForm({...this.props.workoutFormData, exercises: this.state.addedExercises})
+            this.setState({ clicked: false, addedExercises: []})
         }} 
         resetClicked={() => {
             this.props.clearExercises()

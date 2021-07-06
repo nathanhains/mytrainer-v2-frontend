@@ -4,6 +4,7 @@ import {clearWorkouts, getMyWorkouts} from './myWorkouts'
 import {clearExercises} from './exercises'
 import {hideLoader} from './loading'
 import {getUsers, clearUsers} from './users'
+import {getMyNotifications} from './notifications'
 
 // whileTap={{ scale: 0.9 }}
 
@@ -95,6 +96,7 @@ export const getCurrentUser = () => {
                 }else{
                     dispatch(setCurrentUser(user.user))
                     dispatch(getMyWorkouts())
+                    dispatch(getMyNotifications())
                     dispatch(getUsers())
                 }
             })

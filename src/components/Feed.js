@@ -6,7 +6,6 @@ import {getUsers} from '../actions/users'
 import '../feed.css'
 import {connect} from 'react-redux'
 import {motion} from 'framer-motion'
-import Modal from './Modal'
 import Workouts from './Workouts'
 class Feed  extends React.Component {
     
@@ -15,9 +14,9 @@ class Feed  extends React.Component {
         this.props.getMyWorkouts(feed)
     }
 
-    componentWillUnmount() {
-        this.props.clearOurWorkouts()
-    }
+    // componentWillUnmount() {
+    //     this.props.clearOurWorkouts()
+    // }
     
     render(){
 
@@ -53,7 +52,7 @@ class Feed  extends React.Component {
                     </div>
                             
                     <div className="workouts">
-                        <Workouts feed={true} />
+                        {this.props.ourWorkouts !== [] && this.props.currentUser ? <Workouts feed={true} /> : null}
                     </div>
                     
                 </div>
@@ -63,9 +62,10 @@ class Feed  extends React.Component {
 }
 }
 
-const mapStateToProps = ({ourWorkouts}) => {
+const mapStateToProps = ({ourWorkouts, currentUser}) => {
     return {
-        ourWorkouts
+        ourWorkouts,
+        currentUser
     }
 }
 
