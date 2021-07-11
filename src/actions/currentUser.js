@@ -4,7 +4,7 @@ import {clearWorkouts, getMyWorkouts} from './myWorkouts'
 import {clearExercises} from './exercises'
 import {hideLoader} from './loading'
 import {getUsers, clearUsers} from './users'
-import {getMyNotifications} from './notifications'
+import {clearNotifications, getMyNotifications} from './notifications'
 
 // whileTap={{ scale: 0.9 }}
 
@@ -42,7 +42,6 @@ export const login = (credentials, history) => {
                     dispatch(getMyWorkouts())
                     dispatch(resetLoginForm())
                     dispatch(hideLoader())
-                    history.push(`/home`)
                     
                 }
             })
@@ -96,7 +95,6 @@ export const getCurrentUser = () => {
                 }else{
                     dispatch(setCurrentUser(user.user))
                     dispatch(getMyWorkouts())
-                    dispatch(getMyNotifications())
                     dispatch(getUsers())
                 }
             })
@@ -140,6 +138,7 @@ export const logout = () => {
         dispatch(clearWorkouts())
         dispatch(clearExercises())
         dispatch(clearUsers())
+        dispatch(clearNotifications())
     }
 }
 
@@ -156,3 +155,4 @@ export const removeFollowing = (friend) => {
         friend
     }
 }
+

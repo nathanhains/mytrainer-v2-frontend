@@ -1,3 +1,5 @@
+import {getMyNotifications} from './notifications'
+
 export const setUsers = users => {
     return {
         type: "SET_USERS",

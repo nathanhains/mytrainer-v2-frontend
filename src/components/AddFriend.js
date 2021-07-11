@@ -2,10 +2,18 @@ import React from 'react'
 import { connect } from 'react-redux';
 import {addFriend} from '../actions/friends'
 import '../home.css'
-const AddFriend = ({currentUser, user, addFriend}) => {
+import {createNotification} from '../actions/notifications'
+
+const AddFriend = ({currentUser, user, addFriend, createNotification}) => {
 
     const handleClick = () => {
         addFriend(currentUser.data.id, user.id)
+        createNotification({
+            recipient_id: user.id,
+            sender_id: currentUser.data.id,
+            activity_type: "followed you",
+            is_unread: true
+        })
     }
 
    return (
@@ -22,4 +30,4 @@ const mapStateToProps = ({currentUser}) => {
 }
 
 
-export default connect(mapStateToProps, ({addFriend}))(AddFriend);
+export default connect(mapStateToProps, ({addFriend, createNotification}))(AddFriend);

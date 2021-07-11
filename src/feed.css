@@ -8,7 +8,6 @@
     height: 20vh;
     top: 15%;
     left: 6%;
-    
 }
 .feedLogo {
     display: flex;
@@ -18,16 +17,17 @@
     border-radius: 50%;
     cursor: pointer;
 }
+
+
 .feedLogo:hover {
     filter: grayscale(0%) opacity(1);
     background: #23232e;
     color: var(--text-secondary);
   }
+
   .feedLogo:hover svg{
-    filter: grayscale(0%) opacity(1);
-    background: #23232e;
+    filter: drop-shadow(0 0 40px #b452ff);;
     color: var(--text-secondary);
-    text-shadow: 0 0 30px #b452ff;
   }
 
 .feedLogo svg {
@@ -37,8 +37,23 @@
     filter: grayscale(100%) opacity(0.7);
     width: 100%;
     min-width: 2rem;
-    margin: 0 1.5rem;
+    margin: 0 2.0rem;
+    animation: flicker 2s linear 1s forwards;
   }
+
+  @keyframes flicker {
+    0%{filter: grayscale(100%) opacity(0.7);}
+    3%{filter: grayscale(0%) opacity(1) drop-shadow(0 0 20px #b452ff);}
+    6%{filter: grayscale(0%) opacity(1) drop-shadow(0 0 20px #b452ff);}
+    7%{filter: grayscale(100%) opacity(0.7);}
+    8%{filter: grayscale(0%) opacity(1) drop-shadow(0 0 20px #b452ff);}
+    9%{filter: grayscale(100%) opacity(0.7);}
+    10%{filter: grayscale(0%) opacity(1) drop-shadow(0 0 20px #b452ff);}
+    20%{filter: grayscale(100%) opacity(0.7);}
+    50%{filter: grayscale(100%) opacity(0.7);}
+    99%{filter: grayscale(0%) opacity(1) drop-shadow(0 0 20px #b452ff);}
+    100%{filter: grayscale(0%) opacity(1) drop-shadow(0 0 20px #b452ff);}
+}
 
   .feedProfileMain {
     height: 15vh;
@@ -68,7 +83,7 @@
     width: 100%;
     overflow-y: scroll;
     padding-top: 5px;
-    height: 358px;
+    height: 379px;
     background-color: purple;
 }
 

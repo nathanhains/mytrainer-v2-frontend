@@ -11,6 +11,7 @@ import {connect} from 'react-redux'
 import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom'
 import PostSubmission from './components/PostSubmission'
 import {AnimatePresence} from "framer-motion"
+import {getMyNotifications} from './actions/notifications'
 
 class App extends React.Component {
 
@@ -20,6 +21,7 @@ class App extends React.Component {
     
     if(token){
       this.props.showLoader()
+      this.props.getMyNotifications()
       this.props.getCurrentUser()
     }
   }
@@ -54,4 +56,4 @@ const mapStateToProps = ({currentUser})=> {
   }
 }
 
-export default connect(mapStateToProps, {getCurrentUser, showLoader})(App);
+export default connect(mapStateToProps, {getCurrentUser, showLoader, getMyNotifications})(App);

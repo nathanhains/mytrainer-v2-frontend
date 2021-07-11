@@ -6,10 +6,12 @@ import {connect} from 'react-redux'
 import {clearUsers} from '../actions/users'
 import Modal from './Modal'
 import EditUserWrapper from './EditUserWrapper'
+import { getMyNotifications } from '../actions/notifications'
 
-const CurrentUserHome = ({currentUser, hideLoader, clearUsers, myWorkouts}) => {
+const CurrentUserHome = ({currentUser, hideLoader, clearUsers, myWorkouts, getMyNotifications}) => {
     hideLoader()
     clearUsers()
+    getMyNotifications()
     const showRef = useRef()
     const spinner = useRef()
 
@@ -58,4 +60,4 @@ const CurrentUserHome = ({currentUser, hideLoader, clearUsers, myWorkouts}) => {
 
 
 
-export default connect(null, ({clearUsers}))(CurrentUserHome)
+export default connect(null, ({clearUsers, getMyNotifications}))(CurrentUserHome)

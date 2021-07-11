@@ -29,6 +29,7 @@ class EditUserFormWrapper extends React.Component{
             ...this.props.userFormData,
             [name]: value
         }
+        
         this.props.updateUserForm(updatedFormInfo)
     }
 

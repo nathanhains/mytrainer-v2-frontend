@@ -1,0 +1,39 @@
+.card .notification-header {
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 65px;
+    font-size: 25px;
+    text-shadow: 0 0 20px #b452ff;
+    color: #b452ff
+}
+
+.notificationName {
+    transition: 600ms;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.24;
+    z-index: 2;
+    padding-top: 10px;
+    margin: 0;
+    float:left;
+}
+
+.notificationName:hover {
+    filter: grayscale(0%) opacity(1)
+}
+
+.activity-type {
+    font-size: 20px;
+    padding-top: 10px;
+    padding-left: 10px;
+    float: right;
+}
+
+.notification-container {
+    width: 100%;
+    overflow-y: scroll;
+    padding-top: 5px;
+    height: 379px;
+    background-color: purple;
+}

@@ -8,6 +8,7 @@ import RemoveFriend from './RemoveFriend'
 
 const UserHome = ({user, hideLoader, userId, currentUser}) => {
     hideLoader()
+
     return (
 
         <div className="main">
@@ -24,7 +25,6 @@ const UserHome = ({user, hideLoader, userId, currentUser}) => {
                     <div className="profile-headings">
                     <motion.div initial={{opacity: 0}}animate={{opacity: 1}} exit={{opacity:0 }} >
                         <h2 className="section">{user.attributes.name}<span className="section grayed">@{user.attributes.username}</span></h2>
-
                     </motion.div>
                 </div>
                     <motion.div className="ratios" initial={{opacity: 0}}animate={{opacity: 1}} exit={{opacity:0 }} >
@@ -33,7 +33,7 @@ const UserHome = ({user, hideLoader, userId, currentUser}) => {
                         <h4 className="align"><span className="section number">{user.attributes.followees.length}<span  className="section grayed">Following</span></span></h4>
                     </motion.div>
 
-                        <div className="follow">
+                        <div className="follow" >
                             {currentUser.data.attributes.followees.filter((f) => f.id === parseInt(userId)).length > 0 ? <RemoveFriend user={user}/> : <AddFriend user={user}/>}
                         </div>
                     </div>

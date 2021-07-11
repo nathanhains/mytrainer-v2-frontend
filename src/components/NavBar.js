@@ -1,13 +1,19 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 import {getUsers} from '../actions/users'
 import {NavLink} from 'react-router-dom'
-
+import {setRead, updateNotification} from '../actions/notifications'
 import '../navbar.css'
 import NewWorkoutFormWrapper from './NewWorkoutFormWrapper'
 import Search from './Search'
 
-const NavBar = ({currentUser, getUsers}) => {
+const NavBar = ({currentUser, getUsers, notifications, setRead, updateNotification}) => {
+    const handleClick = () => {
+       setRead()
+       notifications.forEach((n) => updateNotification(n))
+       
+    }
+
     return (
         <>
           <nav className="navbar">
@@ -47,7 +53,7 @@ const NavBar = ({currentUser, getUsers}) => {
       <NewWorkoutFormWrapper />
 
       <li className="nav-item">
-        <NavLink to="/notifications" className="nav-link">
+        <NavLink to="/notifications" onClick = {handleClick} className={currentUser && notifications !== [] ? notifications.filter((n) => n.attributes.is_unread === true).length > 0 ? "nav-link unread-nav-link" : "nav-link": null}>
         <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="wave-pulse" className="svg-inline--fa fa-wave-pulse fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M640 255.1C640 269.3 629.3 280 616 280h-120.8l-57.5 122.2c-4.375 9.125-13.5 14.75-24 13.63c-10-.875-18.5-8-21-17.87l-70-268.6L247.5 492.9C245.2 503.8 235.9 511.6 224.8 512H224c-10.75 0-20.25-7.25-23.12-17.62L141.8 280H23.1C10.75 280 0 269.3 0 256S10.75 232 23.1 232H160c10.79 0 20.25 7.206 23.12 17.61l37.5 136L296.5 19.12C298.8 8.25 308.4 .25 319.5 0H320c10.88 0 20.5 7.375 23.25 18l79.25 303.9l35.75-76.12C462.2 237.4 470.8 232 480 232h136C629.3 232 640 242.7 640 255.1z"></path>
             <g className="fa-group">
               <path
@@ -57,7 +63,7 @@ const NavBar = ({currentUser, getUsers}) => {
               ></path>
             </g>
           </svg>
-          <span className="link-text">Exercises</span>
+          <span className="link-text">Notifications</span>
         </NavLink>
       </li>
 
@@ -85,11 +91,12 @@ const NavBar = ({currentUser, getUsers}) => {
     )
 }
 
-const mapStateToProps = ({currentUser}) => {
+const mapStateToProps = ({currentUser, notifications}) => {
     return {
-        currentUser
+        currentUser,
+        notifications
     }
 }
 
-export default connect(mapStateToProps, ({getUsers}))(NavBar);
+export default connect(mapStateToProps, ({getUsers, setRead, updateNotification}))(NavBar);
 

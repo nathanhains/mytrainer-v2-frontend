@@ -13,21 +13,21 @@ export const clearOurWorkouts = () => {
 
 export const addWorkoutSuccessOur = workout => {
     return {
-        type: "ADD_WORKOUT",
+        type: "ADD_OUR_WORKOUT",
         workout
     }
 }
 
 export const deleteWorkoutSuccessOur = workout => {
     return {
-        type: "DELETE_WORKOUT",
+        type: "DELETE_OUR_WORKOUT",
         workout
     }
 }
 
 export const updateWorkoutSuccessOur = workout => {
     return {
-        type: "UPDATE_WORKOUT",
+        type: "UPDATE_OUR_WORKOUT",
         workout
     }
 }

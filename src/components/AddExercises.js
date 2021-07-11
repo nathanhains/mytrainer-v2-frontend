@@ -12,6 +12,7 @@ class AddExercises extends React.Component{
             addedExercises: []
         }
     }
+
     render(){
     return (
         <>
@@ -21,6 +22,7 @@ class AddExercises extends React.Component{
             }}><span>Add Exercise</span></button>
         {this.state.clicked ? <WorkoutExercises 
         addedExercises={this.state.addedExercises}
+        
         addExercise={(e) => {
             this.state.addedExercises !== [] ? 
             this.setState({addedExercises: this.state.addedExercises.concat(e)}) :

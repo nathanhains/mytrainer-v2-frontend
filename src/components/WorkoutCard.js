@@ -27,11 +27,11 @@ const WorkoutCard = ({workout, i, userId, feed, currentUser}) => {
                     {feed ?  <p className="workout-name grayed"><Link style={{textDecoration: 'none', color: '#b452ff'}} to={{
                             pathname: `/users/${workout.attributes.user.data.id}`,
                             props: { user: workout.attributes.user.data }
-                          }}>@{workout.attributes.user.data.attributes.username}</Link>
+                          }}>{workout.attributes.user.data.attributes.username}</Link>
                           </p> : <p className="workout-count grayed">{workout.attributes.workout_exercises.data.length}</p>}
                 </header>
                 <div className="author">
-                    {}
+                    
                 </div>
             </div>
         </motion.div>
@@ -48,6 +48,7 @@ const WorkoutCard = ({workout, i, userId, feed, currentUser}) => {
             <div className="workoutExerciseVars">
                 <span className="formDisplayName left-ish workoutExerciseSetMain">Set{w.attributes.set_groups.data.map((s, i)=> <span className="formDisplayName workoutExerciseSetChild">{i + 1}</span>)}</span><span className="formDisplayName left-ish workoutExerciseSetMain">Reps{w.attributes.set_groups.data.map((s, i)=> <span className="formDisplayName workoutExerciseSetChild">{s.attributes.reps ? s.attributes.reps : "N/A"}</span>)}</span> <span className="formDisplayName workoutExerciseSetMain">Lbs{w.attributes.set_groups.data.map((s, i)=> <span className="formDisplayName workoutExerciseSetChild">{s.attributes.lbs ? s.attributes.lbs : "N/A"}</span>)}</span>
             </div>
+            <hr/>
             </>
             )}
             {!userId ? feed ? currentUser.data.id === workout.attributes.user.data.id ? <EditWorkoutFormWrapper closeModal={()=> showRef.current.close()} workout={workout}/> : <EditWorkoutFormWrapper closeModal={()=> showRef.current.close()} addWorkout="Add Workout" workout={workout}/> : <EditWorkoutFormWrapper closeModal={()=> showRef.current.close()} workout={workout}/> : <EditWorkoutFormWrapper closeModal={()=> showRef.current.close()} addWorkout="Add Workout" workout={workout}/>}

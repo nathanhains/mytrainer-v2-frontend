@@ -55,6 +55,7 @@ export const getMyWorkouts = (feed) => {
             if (response.error){
                 alert(response.error)
             }else {
+                console.log(response)
                 feed ? dispatch(setOurWorkouts(response.data)) && dispatch(hideLoader()) :
                 dispatch(setMyWorkouts(response.data))
             }
